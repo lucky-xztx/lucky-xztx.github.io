@@ -4,10 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="进阶饼图, 小周博客">
-    <meta name="description" content="饼图进阶听过玫瑰图吗？？？
-听过圆角形图吗？？？
-我们先来看图角形图吧1234567891011121314151617181920212223242526272829303132333435363738394041424344454647">
+    <meta name="keywords" content="基础折线图, 小周博客">
+    <meta name="description" content="接下来进入折线图我们做一个每三秒刷新一次温度
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>进阶饼图 | 小周博客</title>
+    <title>基础折线图 | 小周博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -299,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">进阶饼图</h1>
+                    <h1 class="description center-align post-title">基础折线图</h1>
                 </div>
             </div>
         </div>
@@ -386,106 +385,53 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="饼图进阶"><a href="#饼图进阶" class="headerlink" title="饼图进阶"></a>饼图进阶</h1><p>听过玫瑰图吗？？？</p>
-<p>听过圆角形图吗？？？</p>
-<h2 id="我们先来看图角形图吧"><a href="#我们先来看图角形图吧" class="headerlink" title="我们先来看图角形图吧"></a>我们先来看图角形图吧</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;圆角图&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #myPie&#123;</span><br><span class="line">            height: 600px;</span><br><span class="line">            width: 600px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;myPie&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        let mychar=echarts.init(document.getElementById(&#x27;myPie&#x27;));</span><br><span class="line">        let option=&#123;</span><br><span class="line">            title:&#123;</span><br><span class="line">                text:&#x27;双十一售出占比&#x27;,</span><br><span class="line">                subtext:&quot;我是副标题&quot;,</span><br><span class="line">                left:&#x27;center&#x27;</span><br><span class="line">            &#125;,</span><br><span class="line">            legend:&#123;</span><br><span class="line">                left:0,</span><br><span class="line">                orient:&#x27;vertical&#x27;   //修改朝向布局</span><br><span class="line">            &#125;,</span><br><span class="line">            tooltip:&#123;</span><br><span class="line">                formatter:function(res)&#123;</span><br><span class="line">                    // console.log(res);</span><br><span class="line">                    return res.name+&quot;平台卖出:&quot;+res.value+&quot;\n占比率:&quot;+res.percent</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            series:[</span><br><span class="line">               &#123;</span><br><span class="line">                type:&#x27;pie&#x27;,</span><br><span class="line">                data:[],</span><br><span class="line">                name:&quot;双十一&quot;,</span><br><span class="line">                radius:[&quot;20%&quot;,&quot;60%&quot;]    //可以设置内径和外径圆</span><br><span class="line">               &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;;</span><br><span class="line">        let name=[&#x27;淘宝&#x27;,&quot;京东&quot;,&quot;拼多多&quot;,&quot;抖音&quot;,&quot;其他&quot;];</span><br><span class="line">        for (let x of name)&#123;</span><br><span class="line">            option.series[0].data.push(&#123;</span><br><span class="line">                &#x27;name&#x27; : x,</span><br><span class="line">                &#x27;value&#x27; : Math.floor(Math.random()*1000)</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        mychar.setOption(option);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+                <h1 id="接下来进入折线图"><a href="#接下来进入折线图" class="headerlink" title="接下来进入折线图"></a>接下来进入折线图</h1><p>我们做一个每三秒刷新一次温度</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>基础折线图<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-id">#myLine</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">400px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">600px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myLine&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> mychar=echarts.<span class="title function_">init</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myLine&#x27;</span>));</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> option=&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">title</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">text</span>:<span class="string">&quot;气温图&quot;</span></span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">xAxis</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">type</span>:<span class="string">&#x27;category&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">data</span>:[<span class="string">&#x27;MON&#x27;</span>,<span class="string">&#x27;TUE&#x27;</span>,<span class="string">&#x27;WED&#x27;</span>,<span class="string">&#x27;THU&#x27;</span>,<span class="string">&#x27;FRI&#x27;</span>,<span class="string">&#x27;SAT&#x27;</span>,<span class="string">&#x27;SUN&#x27;</span>]</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">yAxis</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">type</span>:<span class="string">&#x27;value&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">axisLabel</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">formatter</span>:<span class="keyword">function</span>(<span class="params">res</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                        <span class="keyword">return</span> res+<span class="string">&quot;°C&quot;</span></span></span><br><span class="line"><span class="language-javascript">                    &#125;</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">series</span>:[</span></span><br><span class="line"><span class="language-javascript">                &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">type</span>:<span class="string">&#x27;line&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">name</span>:<span class="string">&#x27;气温&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">data</span>:[],</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">label</span>:&#123;<span class="attr">show</span>:<span class="literal">true</span>&#125;</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">            ]</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;option.<span class="property">xAxis</span>.<span class="property">data</span>.<span class="property">length</span>;i++)&#123;</span></span><br><span class="line"><span class="language-javascript">            option.<span class="property">series</span>[<span class="number">0</span>].<span class="property">data</span>.<span class="title function_">push</span>(<span class="title class_">Math</span>.<span class="title function_">floor</span>((<span class="title class_">Math</span>.<span class="title function_">random</span>()+<span class="number">1</span>)*<span class="number">20</span>))</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">        mychar.<span class="title function_">setOption</span>(option);</span></span><br><span class="line"><span class="language-javascript">        <span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">                option.<span class="property">series</span>[<span class="number">0</span>].<span class="property">data</span>.<span class="title function_">shift</span>()</span></span><br><span class="line"><span class="language-javascript">                option.<span class="property">series</span>[<span class="number">0</span>].<span class="property">data</span>.<span class="title function_">push</span>(<span class="title class_">Math</span>.<span class="title function_">floor</span>((<span class="title class_">Math</span>.<span class="title function_">random</span>()+<span class="number">1</span>)*<span class="number">20</span>))</span></span><br><span class="line"><span class="language-javascript">                 mychar.<span class="title function_">setOption</span>(option);</span></span><br><span class="line"><span class="language-javascript">        &#125; ,<span class="number">3000</span>)    <span class="comment">//这边是毫秒 这个函数是每3秒执行一次</span></span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>没错就是加个代码就好了，就是这么简单</p>
-<h2 id="我们来看效果吧"><a href="#我们来看效果吧" class="headerlink" title="我们来看效果吧!"></a>我们来看效果吧!</h2><script src="https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"></script>
+<h2 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h2><script src="https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"></script>
 <style>
-        #myPie{
-            height: 600px;
-            width: 600px;
-        }
- </style>
-
-<div id="myPie"></div>
-<script>
-        let mychar=echarts.init(document.getElementById('myPie'));
-        let option={
-            title:{
-                text:'双十一售出占比',
-                subtext:"我是副标题",
-                left:'center'
-            },
-            legend:{
-                left:0,
-                orient:'vertical'   //修改朝向布局
-            },
-            tooltip:{
-                formatter:function(res){
-                    // console.log(res);
-                    return res.name+"平台卖出:"+res.value+"\n占比率:"+res.percent
-                }
-            },
-            series:[
-               {
-                type:'pie',
-                data:[],
-                name:"双十一",
-                radius:["20%","60%"]
-               }
-            ]
-        };
-        let name=['淘宝',"京东","拼多多","抖音","其他"];
-        for (let x of name){
-            option.series[0].data.push({
-                'name' : x,
-                'value' : Math.floor(Math.random()*1000)
-            });
-        }
-        mychar.setOption(option);
- </script>
-
-<h2 id="接下去下一个玫瑰图"><a href="#接下去下一个玫瑰图" class="headerlink" title="接下去下一个玫瑰图!"></a>接下去下一个玫瑰图!</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;玫瑰图&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #myPie&#123;</span><br><span class="line">            height: 600px;</span><br><span class="line">            width: 600px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;myPie&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        let mychar=echarts.init(document.getElementById(&#x27;myPie&#x27;));</span><br><span class="line">        let option=&#123;</span><br><span class="line">            title:&#123;</span><br><span class="line">                text:&#x27;双十一售出占比&#x27;,</span><br><span class="line">                subtext:&quot;我是副标题&quot;,</span><br><span class="line">                left:&#x27;center&#x27;</span><br><span class="line">            &#125;,</span><br><span class="line">            legend:&#123;</span><br><span class="line">                left:0,</span><br><span class="line">                orient:&#x27;vertical&#x27;   //修改朝向布局</span><br><span class="line">            &#125;,</span><br><span class="line">            tooltip:&#123;</span><br><span class="line">                formatter:function(res)&#123;</span><br><span class="line">                    // console.log(res);</span><br><span class="line">                    return res.name+&quot;平台卖出:&quot;+res.value+&quot;\n占比率:&quot;+res.percent</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            series:[</span><br><span class="line">               &#123;</span><br><span class="line">                type:&#x27;pie&#x27;,</span><br><span class="line">                data:[],</span><br><span class="line">                name:&quot;双十一&quot;,</span><br><span class="line">                roseType:&#x27;area&#x27;,    //看起来好像好了，但看起来太尖锐了,我们设置一下边角吧</span><br><span class="line">                itemStyle:&#123;</span><br><span class="line">                    borderRadius:5</span><br><span class="line">                &#125;</span><br><span class="line">               &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;;</span><br><span class="line">        let name=[&#x27;淘宝&#x27;,&quot;京东&quot;,&quot;拼多多&quot;,&quot;抖音&quot;,&quot;其他&quot;];</span><br><span class="line">        for (let x of name)&#123;</span><br><span class="line">            option.series[0].data.push(&#123;</span><br><span class="line">                &#x27;name&#x27; : x,</span><br><span class="line">                &#x27;value&#x27; : Math.floor(Math.random()*1000)</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        mychar.setOption(option);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这就好了</p>
-<h2 id="继续查看效果"><a href="#继续查看效果" class="headerlink" title="继续查看效果:"></a>继续查看效果:</h2><script src="https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"></script>
-<style>
-        #myPie1{
-            height: 600px;
+        #myLine{
+            height: 400px;
             width: 600px;
         }
 </style>
-<div id="myPie1"></div>
+<div id="myLine"></div>
 <script>
-        let mychar1=echarts.init(document.getElementById('myPie1'));
-        let option1={
+        let mychar=echarts.init(document.getElementById('myLine'));
+        let option={
             title:{
-                text:'双十一售出占比',
-                subtext:"我是副标题",
-                left:'center'
+                text:"气温图"
             },
-            legend:{
-                left:0,
-                orient:'vertical'   //修改朝向布局
+            xAxis:{
+                type:'category',
+                data:['MON','TUE','WED','THU','FRI','SAT','SUN']
             },
-            tooltip:{
-                formatter:function(res){
-                    // console.log(res);
-                    return res.name+"平台卖出:"+res.value+"\n占比率:"+res.percent
+            yAxis:{
+                type:'value',
+                axisLabel:{
+                    formatter:function(res){
+                        return res+"°C"
+                    }
                 }
             },
             series:[
-               {
-                type:'pie',
-                data:[],
-                name:"双十一",
-                roseType:'area',    //看起来好像好了，但看起来太尖锐了,我们设置一下边角吧
-                itemStyle:{
-                    borderRadius:5
+                {
+                    type:'line',
+                    name:'气温',
+                    data:[],
+                    label:{show:true}
                 }
-               }
             ]
         };
-        let name1=['淘宝',"京东","拼多多","抖音","其他"];
-        for (let x of name1){
-            option1.series[0].data.push({
-                'name' : x,
-                'value' : Math.floor(Math.random()*1000)
-            });
-        }
-        mychar1.setOption(option1);
+        for (let i=0;i<option.xAxis.data.length;i++){
+            option.series[0].data.push(Math.floor((Math.random()+1)*20))
+        };
+        mychar.setOption(option);
+        setInterval(()=>{
+                option.series[0].data.shift()
+                option.series[0].data.push(Math.floor((Math.random()+1)*20))
+                 mychar.setOption(option);
+        } ,3000)    //这边是毫秒 这个函数是每3秒执行一次    
 </script>
                 
             </div>
@@ -512,7 +458,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/11/12/%E9%A5%BC%E5%9B%BE%E8%BF%9B%E9%98%B6/">http://example.com/2022/11/12/%E9%A5%BC%E5%9B%BE%E8%BF%9B%E9%98%B6/</a>
+                    <a href="http://example.com/2022/11/12/%E5%9F%BA%E7%A1%80%E6%8A%98%E7%BA%BF%E5%9B%BE/">http://example.com/2022/11/12/%E5%9F%BA%E7%A1%80%E6%8A%98%E7%BA%BF%E5%9B%BE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -609,9 +555,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/11/12/%E5%9F%BA%E7%A1%80%E6%8A%98%E7%BA%BF%E5%9B%BE/">
                     <div class="card-image">
@@ -629,9 +576,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -644,6 +591,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -674,13 +622,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/12/%E5%9F%BA%E7%A1%80%E9%A5%BC%E5%9B%BE/">
+                <a href="/2022/11/12/%E9%A5%BC%E5%9B%BE%E8%BF%9B%E9%98%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="基础饼图">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="进阶饼图">
                         
-                        <span class="card-title">基础饼图</span>
+                        <span class="card-title">进阶饼图</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
