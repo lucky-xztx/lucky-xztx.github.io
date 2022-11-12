@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="friends, 小周博客">
-    <meta name="description" content="正青春！">
+    <meta name="keywords" content="Mysql安装, 小周博客">
+    <meta name="description" content="MYSQL配置实验前准备：​                                                                                                    ———只有不">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>friends | 小周博客</title>
+    <title>Mysql安装 | 小周博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -319,12 +319,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">friends</h1>
+                    <h1 class="description center-align post-title">Mysql安装</h1>
                 </div>
             </div>
         </div>
@@ -346,12 +346,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                <span class="chip bg-color">大数据</span>
+                            </a>
+                        
+                            <a href="/tags/Mysql/">
+                                <span class="chip bg-color">Mysql</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Mysql/" class="post-category">
+                                Mysql
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -360,7 +381,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-12
+                    2022-10-15
                 </div>
                 
 
@@ -381,7 +402,44 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="MYSQL配置"><a href="#MYSQL配置" class="headerlink" title="MYSQL配置"></a>MYSQL配置</h1><h2 id="实验前准备："><a href="#实验前准备：" class="headerlink" title="实验前准备："></a>实验前准备：</h2><p>​                                                                                                    ———只有不断学习方能顺应时代发展。</p>
+<p>废话不多说，进入正题：</p>
+<p>准备如下环境</p>
+<p>我是直接安装在Hadoop下的，MySQL也可以单独安装在一个全新的Linux下，安装MySQL是为了hive而做的铺垫。</p>
+<p>我们来到root目录下</p>
+<p>在root目录下我们发现了MySQL的压缩包对其进行解压:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar -xf /root/mysql-5.7.31-1.el7.x86_64.rpm-bundle.tar #这里我直接解压到当前目录下了</span><br><span class="line">yum remove mariadb-libs				#删除mariadb-libs以防等等版本不兼容</span><br><span class="line">#依次进行以下安装，顺序注意不要乱哦！！！</span><br><span class="line">rpm -ivh mysql-community-common-5.7.31-1.el7.x86_64.rpm </span><br><span class="line">rpm -ivh mysql-community-libs*.rpm</span><br><span class="line">rpm -ivh mysql-community-client-5.7.31-1.el7.x86_64.rpm </span><br><span class="line">rpm -ivh --nodeps mysql-community-server-5.7.31-1.el7.x86_64.rpm </span><br><span class="line">rm -rf mysql-community-*			#删除没用的文件，因为都已经安装完成了</span><br></pre></td></tr></table></figure>
+
+<p>没错就是这么简单，这就安装成功啦！！！</p>
+<p>接下来我们去启动MySQL的服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld</span><br><span class="line">systemctl enable mysqld		#并设置开机自启</span><br></pre></td></tr></table></figure>
+
+<p>那既然我们启动了，不妨试试连接MySQL数据库呗！！！</p>
+<p>不过我们记得学校机房的MySQL用户名好像是root密码是123456</p>
+<p>不妨我们来试试登录看可以用吗！！！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure>
+
+<p>哦吼，弹出错误了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql: [Warning] Using a password on the command line interface can be insecure.</span><br><span class="line">ERROR 1045 (28000): Access denied for user &#x27;root&#x27;@&#x27;localhost&#x27; (using password: YES)</span><br></pre></td></tr></table></figure>
+
+<p>然后我们都知道MySQL肯定有root用户，但密码到底多少呢？</p>
+<p>是不是废了，没办法了。</p>
+<p>要不rm -rf /* 删库跑路吧</p>
+<p>哈哈哈！！！</p>
+<p>开玩笑的，其实我们可以通过查看日志去找密码的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /var/log/mysqld.log | grep password</span><br></pre></td></tr></table></figure>
+
+<p>控制台就会有密码啦：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@localhost: .ZUeVuap?1rV</span><br></pre></td></tr></table></figure>
+
+<p>试着去连接吧，哦耶，既然登录成功了，那我们就把root用户改个密码吧。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alter user &quot;root&quot;@&quot;localhost&quot; identified by &quot;Password123$&quot;;</span><br><span class="line">grant all privileges on *.* to &quot;root&quot;@&quot;%&quot; identified by &quot;Password123$&quot;;</span><br><span class="line">flush privileges;</span><br><span class="line">exit;</span><br></pre></td></tr></table></figure>
+
+<p>本期内容到此结束啦！！！</p>
+<p>我们下期再见！！！</p>
+<p>​                                                                                                                                        ——周毅盛</p>
+<p>​                                                                                                                                        2022/10/15</p>
+
                 
             </div>
             <hr/>
@@ -407,7 +465,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/friends/index.html">http://example.com/friends/index.html</a>
+                    <a href="http://example.com/2022/10/15/MySQL%E9%85%8D%E7%BD%AE/">http://example.com/2022/10/15/MySQL%E9%85%8D%E7%BD%AE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -444,7 +502,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                    <span class="chip bg-color">大数据</span>
+                                </a>
+                            
+                                <a href="/tags/Mysql/">
+                                    <span class="chip bg-color">Mysql</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -488,18 +558,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/friends/index.html">
+                <a href="/2022/10/15/flink%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="friends">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Flink全分布安装">
                         
-                        <span class="card-title">friends</span>
+                        <span class="card-title">Flink全分布安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -509,18 +578,37 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            小周
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Flink/" class="post-category">
+                                    Flink
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                    <a href="/tags/Flink/">
+                        <span class="chip bg-color">Flink</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -528,16 +616,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/friends/index.html">
+                <a href="/2022/10/15/flume%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="friends">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Flume安装">
                         
-                        <span class="card-title">friends</span>
+                        <span class="card-title">Flume安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -548,17 +636,36 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            小周
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Flume/" class="post-category">
+                                    Flume
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                    <a href="/tags/Flume/">
+                        <span class="chip bg-color">Flume</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

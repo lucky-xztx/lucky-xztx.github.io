@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="friends, 小周博客">
-    <meta name="description" content="正青春！">
+    <meta name="keywords" content="SQOOP遇到问题, 小周博客">
+    <meta name="description" content="sqoop导入遇到的问题当我们导入执行
+1sqoop export --connect jdbc:mysql://master:3306/testdb --table Student --username root --password 1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>friends | 小周博客</title>
+    <title>SQOOP遇到问题 | 小周博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -319,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">friends</h1>
+                    <h1 class="description center-align post-title">SQOOP遇到问题</h1>
                 </div>
             </div>
         </div>
@@ -346,12 +347,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                <span class="chip bg-color">大数据</span>
+                            </a>
+                        
+                            <a href="/tags/SQOOP/">
+                                <span class="chip bg-color">SQOOP</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/SQOOP/" class="post-category">
+                                SQOOP
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -360,7 +382,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-12
+                    2022-10-20
                 </div>
                 
 
@@ -381,7 +403,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="sqoop导入遇到的问题"><a href="#sqoop导入遇到的问题" class="headerlink" title="sqoop导入遇到的问题"></a>sqoop导入遇到的问题</h1><p>当我们导入执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqoop export --connect jdbc:mysql://master:3306/testdb --table Student --username root --password 123456 --export-dir hdfs://master:9000/xz/mysql.log --input-fields-terminated-by &#x27;,&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>查询数据库发现数据库的中文编码都是乱码<img src="C:\Users\周毅盛\AppData\Roaming\Typora\typora-user-images\image-20221020190639397.png" alt="image-20221020190639397"></p>
+<p>则我们登入mysql中执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set character_set_database=utf8;</span><br><span class="line">set character_set_server=utf8;</span><br></pre></td></tr></table></figure>
+
+<p>然后在重新导入依次，导入的时候链接地址加上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?useUnicode=true&amp;characterEncoding=utf-8</span><br></pre></td></tr></table></figure>
+
+<p>也就是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqoop export --connect jdbc:mysql://master:3306/testdb?useUnicode=true&amp;characterEncoding=utf-8 --table Student --username root --password 123456 --export-dir hdfs://master:9000/xz/mysql.log --input-fields-terminated-by &#x27;,&#x27;</span><br></pre></td></tr></table></figure>
+
+
                 
             </div>
             <hr/>
@@ -407,7 +442,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/friends/index.html">http://example.com/friends/index.html</a>
+                    <a href="http://example.com/2022/10/20/sqoop%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/">http://example.com/2022/10/20/sqoop%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -444,7 +479,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                    <span class="chip bg-color">大数据</span>
+                                </a>
+                            
+                                <a href="/tags/SQOOP/">
+                                    <span class="chip bg-color">SQOOP</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -488,18 +535,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/friends/index.html">
+                <a href="/2022/11/12/%E6%B5%8B%E8%AF%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="friends">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="测试">
                         
-                        <span class="card-title">friends</span>
+                        <span class="card-title">测试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -509,9 +555,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -520,7 +566,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -528,16 +573,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/friends/index.html">
+                <a href="/2022/10/16/Ha%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="friends">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Hadoop高性能安装">
                         
-                        <span class="card-title">friends</span>
+                        <span class="card-title">Hadoop高性能安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -548,17 +593,36 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-16
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            小周
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hadoop/" class="post-category">
+                                    Hadoop
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hadoop/">
+                        <span class="chip bg-color">Hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

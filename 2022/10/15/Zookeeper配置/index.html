@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="friends, 小周博客">
-    <meta name="description" content="正青春！">
+    <meta name="keywords" content="Zookeeper安装, 小周博客">
+    <meta name="description" content="Zookeeper配置实验前准备：​                                                                                                    ——">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>friends | 小周博客</title>
+    <title>Zookeeper安装 | 小周博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -319,12 +319,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">friends</h1>
+                    <h1 class="description center-align post-title">Zookeeper安装</h1>
                 </div>
             </div>
         </div>
@@ -346,12 +346,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                <span class="chip bg-color">大数据</span>
+                            </a>
+                        
+                            <a href="/tags/Zookeeper/">
+                                <span class="chip bg-color">Zookeeper</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Zookeeper/" class="post-category">
+                                Zookeeper
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -360,7 +381,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-12
+                    2022-10-15
                 </div>
                 
 
@@ -381,7 +402,64 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Zookeeper配置"><a href="#Zookeeper配置" class="headerlink" title="Zookeeper配置"></a>Zookeeper配置</h1><h2 id="实验前准备："><a href="#实验前准备：" class="headerlink" title="实验前准备："></a>实验前准备：</h2><p>​                                                                                                    ———只有不断学习方能顺应时代发展。</p>
+<p>废话不多说，进入正题：</p>
+<p>准备如下环境</p>
+<ol>
+<li>创建一台纯净Linux并配置好静态IP</li>
+<li>克隆俩台Linux</li>
+<li>更改俩台Linux的IP地址( vi /etc/sysconfig/network-scripts/ifcfg-ens33 )</li>
+</ol>
+<p>​    列如：master:192.168.0.2</p>
+<p>​                slave1: 192.168.0.3</p>
+<p>​                slave2: 192.168.0.4</p>
+<p>到root目录下找到zookeeper的压缩包进行解压：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf /root/zookeeper-3.4.6.tar.gz -C /usr/local/src/</span><br><span class="line">mv /usr/local/src/zookeeper-3.4.6/ /usr/local/src/zookeeper		#对文件夹进行重命名</span><br><span class="line">vi /etc/profile				#编辑环境变量</span><br></pre></td></tr></table></figure>
+
+<p>在末尾处添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export ZK_HOME=/usr/local/src/zookeeper</span><br><span class="line">export PATH=$PATH:$ZK_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<p>执行配置文件:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>进入到zookeeper的conf配置下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/zookeeper/conf/</span><br></pre></td></tr></table></figure>
+
+<p>复制zoo_sample.cfg一份并改名为zoo.cfg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp zoo_sample.cfg zoo.cfg</span><br></pre></td></tr></table></figure>
+
+<p>打开zoo.cfg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi zoo.cfg</span><br></pre></td></tr></table></figure>
+
+<p>修改文件里的:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dataDir=/usr/local/src/zookeeper/data</span><br></pre></td></tr></table></figure>
+
+<p>在文件末尾添加:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.1=master:2888:3888</span><br><span class="line">server.2=slave1:2888:3888</span><br><span class="line">server.3=slave2:2888:3888</span><br></pre></td></tr></table></figure>
+
+<p>在zookeeper下创建data文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/src/zookeeper/data</span><br></pre></td></tr></table></figure>
+
+<p>利用重定向在刚刚建立的data下写进1保存在myid</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 1 &gt; /usr/local/src/zookeeper/data/myid</span><br></pre></td></tr></table></figure>
+
+<p>将zookeeper文件分发给slave1,slave2：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scp -r /usr/local/src/zookeeper/ slave1:/usr/local/src/</span><br><span class="line">scp -r /usr/local/src/zookeeper/ slave2:/usr/local/src/</span><br><span class="line">scp /etc/profile slave1:/etc/			#顺带分发环境给他们</span><br><span class="line">scp /etc/profile slave2:/etc/</span><br></pre></td></tr></table></figure>
+
+<p>切换slave1:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">echo 2 &gt; /usr/local/src/zookeeper/data/myid</span><br></pre></td></tr></table></figure>
+
+<p>切换slave2:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">echo 3 &gt; /usr/local/src/zookeeper/data/myid</span><br></pre></td></tr></table></figure>
+
+<p>三台输入启动:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zkServer.sh start</span><br><span class="line">zkServer.sh status			#查看状态</span><br></pre></td></tr></table></figure>
+
+<p>其中俩台是follower，一台是leader。</p>
+<p>恭喜你搭建动物园管理器成功了！！！</p>
+<p>​                                                                                                                                        ——周毅盛</p>
+<p>​                                                                                                                                        2022/10/15</p>
+
                 
             </div>
             <hr/>
@@ -407,7 +485,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/friends/index.html">http://example.com/friends/index.html</a>
+                    <a href="http://example.com/2022/10/15/Zookeeper%E9%85%8D%E7%BD%AE/">http://example.com/2022/10/15/Zookeeper%E9%85%8D%E7%BD%AE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -444,7 +522,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                    <span class="chip bg-color">大数据</span>
+                                </a>
+                            
+                                <a href="/tags/Zookeeper/">
+                                    <span class="chip bg-color">Zookeeper</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -488,18 +578,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/friends/index.html">
+                <a href="/2022/10/15/Spark%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="friends">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Spark安装">
                         
-                        <span class="card-title">friends</span>
+                        <span class="card-title">Spark安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -509,18 +598,37 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            小周
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Spark/" class="post-category">
+                                    Spark
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                    <a href="/tags/Spark-%E8%83%BD%E6%9C%89%E5%A4%9A%E4%B8%AA/">
+                        <span class="chip bg-color">Spark# 能有多个</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -528,16 +636,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/friends/index.html">
+                <a href="/2022/10/15/Hadoop%E5%85%A8%E5%88%86%E5%B8%83/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="friends">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hadoop全分布安装">
                         
-                        <span class="card-title">friends</span>
+                        <span class="card-title">Hadoop全分布安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -548,17 +656,36 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            小周
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hadoop/" class="post-category">
+                                    Hadoop
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hadoop/">
+                        <span class="chip bg-color">Hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

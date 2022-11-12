@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="friends, 小周博客">
-    <meta name="description" content="正青春！">
+    <meta name="keywords" content="Flink全分布安装, 小周博客">
+    <meta name="description" content="Flink配置实验前准备：​                                                                                                    ———只有不">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>friends | 小周博客</title>
+    <title>Flink全分布安装 | 小周博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -319,12 +319,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">friends</h1>
+                    <h1 class="description center-align post-title">Flink全分布安装</h1>
                 </div>
             </div>
         </div>
@@ -346,12 +346,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                <span class="chip bg-color">大数据</span>
+                            </a>
+                        
+                            <a href="/tags/Flink/">
+                                <span class="chip bg-color">Flink</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Flink/" class="post-category">
+                                Flink
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -360,7 +381,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-12
+                    2022-10-15
                 </div>
                 
 
@@ -381,7 +402,72 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Flink配置"><a href="#Flink配置" class="headerlink" title="Flink配置"></a>Flink配置</h1><h2 id="实验前准备："><a href="#实验前准备：" class="headerlink" title="实验前准备："></a>实验前准备：</h2><p>​                                                                                                    ———只有不断学习方能顺应时代发展。</p>
+<p>废话不多说，进入正题：</p>
+<p>准备如下环境</p>
+<p>必须安装好Hadoop</p>
+<p>依旧来到root目录下找到flink压缩包进行解压:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf /root/flink-1.10.2-bin-scala_2.11.tgz -C /usr/local/src/</span><br><span class="line">mv /usr/local/src/flink-1.10.2/ /usr/local/src/flink		#修改文件夹名称</span><br><span class="line">vi /etc/profile				#修改环境变量</span><br></pre></td></tr></table></figure>
+
+<p>在末尾处添加:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export FLINK_HOME=/usr/local/src/flink</span><br><span class="line">export PATH=$PATH:$FLINK_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<p>执行环境变量让其生效:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>进入到flink的conf配置下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/flink/conf/</span><br></pre></td></tr></table></figure>
+
+<p>打开flink-conf.yaml文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi flink-conf.yaml</span><br></pre></td></tr></table></figure>
+
+<p>修改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobmanager.rpc.address: master</span><br></pre></td></tr></table></figure>
+
+<p>打开slaves文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi slaves</span><br></pre></td></tr></table></figure>
+
+<p>删除全部添加如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">slave1</span><br><span class="line">slave2</span><br></pre></td></tr></table></figure>
+
+<p>打开masters文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi masters</span><br></pre></td></tr></table></figure>
+
+<p>修改:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">master:8081</span><br></pre></td></tr></table></figure>
+
+<p>复制root目录下的flink的jar包到flink目录下的lib</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /root/flink-shaded-hadoop-2-uber-2.7.5-10.0.jar /usr/local/src/flink/lib/</span><br></pre></td></tr></table></figure>
+
+<p>把flink文件分发给slave1,slave2:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scp -r /usr/local/src/flink/ slave1:/usr/local/src/</span><br><span class="line">scp -r /usr/local/src/flink/ slave2:/usr/local/src/</span><br><span class="line">scp /etc/profile slave1:/etc/			#顺带分发环境</span><br><span class="line">scp /etc/profile slave2:/etc/</span><br></pre></td></tr></table></figure>
+
+<p>切换slave1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>切换slave2：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>启动服务:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-cluster.sh </span><br></pre></td></tr></table></figure>
+
+<p>对齐进行测试：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flink run /usr/local/src/flink/examples/batch/WordCount.jar </span><br></pre></td></tr></table></figure>
+
+<p>接下去配置在yarn模式下：</p>
+<p>编辑Hadoop配置下的yarn-site.xml文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/local/src/hadoop/etc/hadoop/yarn-site.xml </span><br></pre></td></tr></table></figure>
+
+<p>在<configuration></configuration>中间添加:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;</span><br><span class="line">&lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接下去开始跑在yarn模式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flink run -m yarn-cluster /usr/local/src/flink/examples/batch/WordCount.jar </span><br></pre></td></tr></table></figure>
+
+<p>如果这里报错可以看看这个教程：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Zsigner/article/details/110949389">【FLINK】 No Executor found. Please make sure to export the HADOOP_CLASSPATH_Zsigner的博客-CSDN博客</a></p>
+<p>​                                                                                                                                        ——周毅盛</p>
+<p>​                                                                                                                                        2022/10/15</p>
+
                 
             </div>
             <hr/>
@@ -407,7 +493,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/friends/index.html">http://example.com/friends/index.html</a>
+                    <a href="http://example.com/2022/10/15/flink%E9%85%8D%E7%BD%AE/">http://example.com/2022/10/15/flink%E9%85%8D%E7%BD%AE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -444,7 +530,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                    <span class="chip bg-color">大数据</span>
+                                </a>
+                            
+                                <a href="/tags/Flink/">
+                                    <span class="chip bg-color">Flink</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -488,18 +586,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/friends/index.html">
+                <a href="/2022/10/16/Ha%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="friends">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Hadoop高性能安装">
                         
-                        <span class="card-title">friends</span>
+                        <span class="card-title">Hadoop高性能安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -509,18 +606,37 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-16
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            小周
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hadoop/" class="post-category">
+                                    Hadoop
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hadoop/">
+                        <span class="chip bg-color">Hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -528,16 +644,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/friends/index.html">
+                <a href="/2022/10/15/MySQL%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="friends">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Mysql安装">
                         
-                        <span class="card-title">friends</span>
+                        <span class="card-title">Mysql安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -548,17 +664,36 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            小周
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Mysql/" class="post-category">
+                                    Mysql
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                    <a href="/tags/Mysql/">
+                        <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
