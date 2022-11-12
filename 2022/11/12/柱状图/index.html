@@ -4,9 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Redis安装部署, 小周博客">
-    <meta name="description" content="实操：Redis安装部署【环境】​    防火墙、SELinux均已关闭。​    安装包位于root目录下。
-因为我是部署在docker容器下的centos7下的，很多依赖都没安装,我们先安装一下依赖吧.1yum -y install g">
+    <meta name="keywords" content="基础柱状图, 小周博客">
+    <meta name="description" content="开始我们的echarts之旅吧这边建议去看官方文档学习
+这是官网地址:https://echarts.apache.org/
+进入我们重点啦，我们生活柱状图有啥？？？
+没错有x轴和y轴，还有数据
+同理我们在echrts配置也是只要配置这些即">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redis安装部署 | 小周博客</title>
+    <title>基础柱状图 | 小周博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -298,12 +301,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redis安装部署</h1>
+                    <h1 class="description center-align post-title">基础柱状图</h1>
                 </div>
             </div>
         </div>
@@ -327,16 +330,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/Echarts/">
+                                <span class="chip bg-color">Echarts</span>
                             </a>
                         
-                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                                <span class="chip bg-color">大数据</span>
+                            <a href="/tags/HTML/">
+                                <span class="chip bg-color">HTML</span>
                             </a>
                         
-                            <a href="/tags/Redis/">
-                                <span class="chip bg-color">Redis</span>
+                            <a href="/tags/CSS/">
+                                <span class="chip bg-color">CSS</span>
+                            </a>
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
                             </a>
                         
                     </div>
@@ -347,8 +354,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Redis/" class="post-category">
-                                Redis
+                            <a href="/categories/Echarts/" class="post-category">
+                                Echarts
                             </a>
                         
                     </div>
@@ -381,33 +388,49 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="实操：Redis安装部署"><a href="#实操：Redis安装部署" class="headerlink" title="实操：Redis安装部署"></a>实操：Redis安装部署</h1><h2 id="【环境】"><a href="#【环境】" class="headerlink" title="【环境】"></a>【环境】</h2><p>​    防火墙、SELinux均已关闭。<br>​    安装包位于root目录下。</p>
-<h3 id="因为我是部署在docker容器下的centos7下的，很多依赖都没安装-我们先安装一下依赖吧"><a href="#因为我是部署在docker容器下的centos7下的，很多依赖都没安装-我们先安装一下依赖吧" class="headerlink" title="因为我是部署在docker容器下的centos7下的，很多依赖都没安装,我们先安装一下依赖吧."></a>因为我是部署在docker容器下的centos7下的，很多依赖都没安装,我们先安装一下依赖吧.</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc automake autoconf libtool make</span><br></pre></td></tr></table></figure>
+                <h1 id="开始我们的echarts之旅吧"><a href="#开始我们的echarts之旅吧" class="headerlink" title="开始我们的echarts之旅吧"></a>开始我们的echarts之旅吧</h1><p>这边建议去看官方文档学习</p>
+<p>这是官网地址:<a target="_blank" rel="noopener" href="https://echarts.apache.org/">https://echarts.apache.org/</a></p>
+<p>进入我们重点啦，我们生活柱状图有啥？？？</p>
+<p>没错有x轴和y轴，还有数据</p>
+<p>同理我们在echrts配置也是只要配置这些即可</p>
+<h2 id="打开我们的vodece开始吧！！！"><a href="#打开我们的vodece开始吧！！！" class="headerlink" title="打开我们的vodece开始吧！！！"></a>打开我们的vodece开始吧！！！</h2><p>这边我们采用在线地址引用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>柱状图<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-id">#myBar</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">400px</span>;  #设置高度</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">600px</span>;	#设置宽度</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myBar&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">        let myChar=echarts.init(document.getElementById(&#x27;myBar&#x27;));</span><br><span class="line">        let option=&#123;</span><br><span class="line">            title:&#123;</span><br><span class="line">                text:&#x27;我是柱状图的标题&#x27;    #设置标题</span><br><span class="line">            &#125;,</span><br><span class="line">            xAxis:&#123;</span><br><span class="line">                type:&#x27;category&#x27;,</span><br><span class="line">                data:[&quot;小周&quot;,&quot;小红&quot;,&quot;小白&quot;,&quot;小明&quot;,&quot;小黄&quot;]</span><br><span class="line">            &#125;,</span><br><span class="line">            yAxis:&#123;</span><br><span class="line">                type:&#x27;value&#x27;</span><br><span class="line">            &#125;,</span><br><span class="line">            series:[</span><br><span class="line">                &#123;</span><br><span class="line">                    type:&#x27;bar&#x27;,</span><br><span class="line">                    data:[],</span><br><span class="line">                    name:&#x27;语文&#x27;</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;;</span><br><span class="line">        for (let i=0;i&lt;option.xAxis.data.length;i++)&#123;</span><br><span class="line">            option.series[0].data.push(Math.floor(Math.random()*100));</span><br><span class="line">        &#125;</span><br><span class="line">        myChar.setOption(option);</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-
-
-<h3 id="把安装包解压到-usr-local-src目录下"><a href="#把安装包解压到-usr-local-src目录下" class="headerlink" title="把安装包解压到/usr/local/src目录下"></a>把安装包解压到/usr/local/src目录下</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf /root/redis-4.0.1.tar.gz -C /usr/local/src/</span><br></pre></td></tr></table></figure>
-
-<h3 id="切换到"><a href="#切换到" class="headerlink" title="切换到"></a>切换到</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/redis-4.0.1</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-
-<h3 id="如果执行make命令报错：致命错误-jemalloc-jemalloc-h-没有那个文件或目录，则需要在make指定分配器为libc。执行下面命令即可正常编译"><a href="#如果执行make命令报错：致命错误-jemalloc-jemalloc-h-没有那个文件或目录，则需要在make指定分配器为libc。执行下面命令即可正常编译" class="headerlink" title="如果执行make命令报错：致命错误:jemalloc/jemalloc.h: 没有那个文件或目录，则需要在make指定分配器为libc。执行下面命令即可正常编译"></a>如果执行make命令报错：致命错误:jemalloc/jemalloc.h: 没有那个文件或目录，则需要在make指定分配器为libc。执行下面命令即可正常编译</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make MALLOC=libc</span><br></pre></td></tr></table></figure>
-
-<h3 id="再执行一次"><a href="#再执行一次" class="headerlink" title="再执行一次:"></a>再执行一次:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
-
-<h3 id="这样就完成编译了，接下去开始安装"><a href="#这样就完成编译了，接下去开始安装" class="headerlink" title="这样就完成编译了，接下去开始安装:"></a>这样就完成编译了，接下去开始安装:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install PREFIX=/usr/local/src/redis-4.0.1</span><br></pre></td></tr></table></figure>
-
-<p>这样就安装成功了</p>
-<h2 id="接下来是启动redis"><a href="#接下来是启动redis" class="headerlink" title="接下来是启动redis:"></a>接下来是启动redis:</h2><h3 id="进入我们安装的目录下"><a href="#进入我们安装的目录下" class="headerlink" title="进入我们安装的目录下:"></a>进入我们安装的目录下:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/lcoal/src/redis-4.0.1</span><br><span class="line">./bin/redis-server redis.conf</span><br></pre></td></tr></table></figure>
-
-<h3 id="此时服务就已经启动了，我们可以开启另一个终端试一试"><a href="#此时服务就已经启动了，我们可以开启另一个终端试一试" class="headerlink" title="此时服务就已经启动了，我们可以开启另一个终端试一试"></a>此时服务就已经启动了，我们可以开启另一个终端试一试</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/lcoal/src/redis-4.0.1</span><br><span class="line">./bin/redis-cli</span><br></pre></td></tr></table></figure>
-
-<h3 id="接下去我们在客户端尝试使用"><a href="#接下去我们在客户端尝试使用" class="headerlink" title="接下去我们在客户端尝试使用:"></a>接下去我们在客户端尝试使用:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping #当返回pong证明安装成功</span><br></pre></td></tr></table></figure>
-
-<p>简单吧，这就结束啦！！！</p>
-<p>我们下期见！</p>
-<p>——周毅盛</p>
-<p>2022年11月12日</p>
-
+<h2 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a>效果如下：</h2><p>因为采用随机数<br>所有每次刷新都不一样</p>
+<script src="https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"></script>
+<style>
+    #myBar{
+        height: 400px;
+        width: 600px;
+    }
+</style>
+<div id="myBar"></div>
+<script>
+        let myChar=echarts.init(document.getElementById('myBar'));
+        let option={
+            title:{
+                text:'我是柱状图的标题'
+            },
+            xAxis:{
+                type:'category',
+                data:["小周","小红","小白","小明","小黄"]
+            },
+            yAxis:{
+                type:'value'
+            },
+            series:[
+                {
+                    type:'bar',
+                    data:[],
+                    name:'语文'
+                }
+            ]
+        };
+        for (let i=0;i<option.xAxis.data.length;i++){
+            option.series[0].data.push(Math.floor(Math.random()*100));
+        }
+        myChar.setOption(option);
+    </script>
                 
             </div>
             <hr/>
@@ -433,7 +456,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/11/12/Redis%E5%AE%89%E8%A3%85/">http://example.com/2022/11/12/Redis%E5%AE%89%E8%A3%85/</a>
+                    <a href="http://example.com/2022/11/12/%E6%9F%B1%E7%8A%B6%E5%9B%BE/">http://example.com/2022/11/12/%E6%9F%B1%E7%8A%B6%E5%9B%BE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -471,16 +494,20 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/Echarts/">
+                                    <span class="chip bg-color">Echarts</span>
                                 </a>
                             
-                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                                    <span class="chip bg-color">大数据</span>
+                                <a href="/tags/HTML/">
+                                    <span class="chip bg-color">HTML</span>
                                 </a>
                             
-                                <a href="/tags/Redis/">
-                                    <span class="chip bg-color">Redis</span>
+                                <a href="/tags/CSS/">
+                                    <span class="chip bg-color">CSS</span>
+                                </a>
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
                                 </a>
                             
                         </div>
@@ -530,7 +557,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/11/12/%E6%9F%B1%E7%8A%B6%E5%9B%BE/">
+                <a href="/2022/11/12/%E6%9F%B1%E7%8A%B6%E5%9B%BE%E8%BF%9B%E9%98%B6/">
                     <div class="card-image">
                         
                         
@@ -591,13 +618,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/12/%E6%B5%8B%E8%AF%95/">
+                <a href="/2022/11/12/Redis%E5%AE%89%E8%A3%85/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="测试">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Redis安装部署">
                         
-                        <span class="card-title">测试</span>
+                        <span class="card-title">Redis安装部署</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -612,11 +639,31 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            小周
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                    <a href="/tags/Redis/">
+                        <span class="chip bg-color">Redis</span>
+                    </a>
+                    
                 </div>
                 
             </div>
