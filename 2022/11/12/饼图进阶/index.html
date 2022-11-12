@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Zookeeper安装, 小周博客">
-    <meta name="description" content="Zookeeper配置实验前准备：​                                                                                                    ——">
+    <meta name="keywords" content="进阶饼图, 小周博客">
+    <meta name="description" content="饼图进阶听过玫瑰图吗？？？
+听过圆角形图吗？？？
+我们先来看图角形图吧1234567891011121314151617181920212223242526272829303132333435363738394041424344454647">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Zookeeper安装 | 小周博客</title>
+    <title>进阶饼图 | 小周博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -297,12 +299,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Zookeeper安装</h1>
+                    <h1 class="description center-align post-title">进阶饼图</h1>
                 </div>
             </div>
         </div>
@@ -326,16 +328,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/Echarts/">
+                                <span class="chip bg-color">Echarts</span>
                             </a>
                         
-                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                                <span class="chip bg-color">大数据</span>
+                            <a href="/tags/HTML/">
+                                <span class="chip bg-color">HTML</span>
                             </a>
                         
-                            <a href="/tags/Zookeeper/">
-                                <span class="chip bg-color">Zookeeper</span>
+                            <a href="/tags/CSS/">
+                                <span class="chip bg-color">CSS</span>
+                            </a>
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
                             </a>
                         
                     </div>
@@ -346,8 +352,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Zookeeper/" class="post-category">
-                                Zookeeper
+                            <a href="/categories/Echarts/" class="post-category">
+                                Echarts
                             </a>
                         
                     </div>
@@ -359,7 +365,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-15
+                    2022-11-12
                 </div>
                 
 
@@ -380,49 +386,107 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Zookeeper配置"><a href="#Zookeeper配置" class="headerlink" title="Zookeeper配置"></a>Zookeeper配置</h1><h2 id="实验前准备："><a href="#实验前准备：" class="headerlink" title="实验前准备："></a>实验前准备：</h2><p>​                                                                                                    ———只有不断学习方能顺应时代发展。</p>
-<p>废话不多说，进入正题：</p>
-<p>准备如下环境</p>
-<ol>
-<li>创建一台纯净Linux并配置好静态IP</li>
-<li>克隆俩台Linux</li>
-<li>更改俩台Linux的IP地址( vi /etc/sysconfig/network-scripts/ifcfg-ens33 )</li>
-</ol>
-<p>​    列如：master:192.168.0.2</p>
-<p>​                slave1: 192.168.0.3</p>
-<p>​                slave2: 192.168.0.4</p>
-<h3 id="到root目录下找到zookeeper的压缩包进行解压："><a href="#到root目录下找到zookeeper的压缩包进行解压：" class="headerlink" title="到root目录下找到zookeeper的压缩包进行解压："></a>到root目录下找到zookeeper的压缩包进行解压：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf /root/zookeeper-3.4.6.tar.gz -C /usr/local/src/</span><br><span class="line">mv /usr/local/src/zookeeper-3.4.6/ /usr/local/src/zookeeper		#对文件夹进行重命名</span><br><span class="line">vi /etc/profile				#编辑环境变量</span><br></pre></td></tr></table></figure>
+                <h1 id="饼图进阶"><a href="#饼图进阶" class="headerlink" title="饼图进阶"></a>饼图进阶</h1><p>听过玫瑰图吗？？？</p>
+<p>听过圆角形图吗？？？</p>
+<h2 id="我们先来看图角形图吧"><a href="#我们先来看图角形图吧" class="headerlink" title="我们先来看图角形图吧"></a>我们先来看图角形图吧</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;圆角图&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #myPie&#123;</span><br><span class="line">            height: 600px;</span><br><span class="line">            width: 600px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;myPie&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        let mychar=echarts.init(document.getElementById(&#x27;myPie&#x27;));</span><br><span class="line">        let option=&#123;</span><br><span class="line">            title:&#123;</span><br><span class="line">                text:&#x27;双十一售出占比&#x27;,</span><br><span class="line">                subtext:&quot;我是副标题&quot;,</span><br><span class="line">                left:&#x27;center&#x27;</span><br><span class="line">            &#125;,</span><br><span class="line">            legend:&#123;</span><br><span class="line">                left:0,</span><br><span class="line">                orient:&#x27;vertical&#x27;   //修改朝向布局</span><br><span class="line">            &#125;,</span><br><span class="line">            tooltip:&#123;</span><br><span class="line">                formatter:function(res)&#123;</span><br><span class="line">                    // console.log(res);</span><br><span class="line">                    return res.name+&quot;平台卖出:&quot;+res.value+&quot;\n占比率:&quot;+res.percent</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            series:[</span><br><span class="line">               &#123;</span><br><span class="line">                type:&#x27;pie&#x27;,</span><br><span class="line">                data:[],</span><br><span class="line">                name:&quot;双十一&quot;,</span><br><span class="line">                radius:[&quot;20%&quot;,&quot;60%&quot;]    //可以设置内径和外径圆</span><br><span class="line">               &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;;</span><br><span class="line">        let name=[&#x27;淘宝&#x27;,&quot;京东&quot;,&quot;拼多多&quot;,&quot;抖音&quot;,&quot;其他&quot;];</span><br><span class="line">        for (let x of name)&#123;</span><br><span class="line">            option.series[0].data.push(&#123;</span><br><span class="line">                &#x27;name&#x27; : x,</span><br><span class="line">                &#x27;value&#x27; : Math.floor(Math.random()*1000)</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        mychar.setOption(option);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="在末尾处添加："><a href="#在末尾处添加：" class="headerlink" title="在末尾处添加："></a>在末尾处添加：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export ZK_HOME=/usr/local/src/zookeeper</span><br><span class="line">export PATH=$PATH:$ZK_HOME/bin</span><br></pre></td></tr></table></figure>
+<p>没错就是加个代码就好了，就是这么简单</p>
+<h2 id="我们来看效果吧"><a href="#我们来看效果吧" class="headerlink" title="我们来看效果吧!"></a>我们来看效果吧!</h2><script src="https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"></script>
+<style>
+        #myPie{
+            height: 600px;
+            width: 600px;
+        }
+ </style>
 
-<h3 id="执行配置文件"><a href="#执行配置文件" class="headerlink" title="执行配置文件:"></a>执行配置文件:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<div id="myPie"></div>
+<script>
+        let mychar=echarts.init(document.getElementById('myPie'));
+        let option={
+            title:{
+                text:'双十一售出占比',
+                subtext:"我是副标题",
+                left:'center'
+            },
+            legend:{
+                left:0,
+                orient:'vertical'   //修改朝向布局
+            },
+            tooltip:{
+                formatter:function(res){
+                    // console.log(res);
+                    return res.name+"平台卖出:"+res.value+"\n占比率:"+res.percent
+                }
+            },
+            series:[
+               {
+                type:'pie',
+                data:[],
+                name:"双十一",
+                radius:["20%","60%"]
+               }
+            ]
+        };
+        let name=['淘宝',"京东","拼多多","抖音","其他"];
+        for (let x of name){
+            option.series[0].data.push({
+                'name' : x,
+                'value' : Math.floor(Math.random()*1000)
+            });
+        }
+        mychar.setOption(option);
+ </script>
 
-<h3 id="进入到zookeeper的conf配置下"><a href="#进入到zookeeper的conf配置下" class="headerlink" title="进入到zookeeper的conf配置下:"></a>进入到zookeeper的conf配置下:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/zookeeper/conf/</span><br></pre></td></tr></table></figure>
+<h2 id="接下去下一个玫瑰图"><a href="#接下去下一个玫瑰图" class="headerlink" title="接下去下一个玫瑰图!"></a>接下去下一个玫瑰图!</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;玫瑰图&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #myPie&#123;</span><br><span class="line">            height: 600px;</span><br><span class="line">            width: 600px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;myPie&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        let mychar=echarts.init(document.getElementById(&#x27;myPie&#x27;));</span><br><span class="line">        let option=&#123;</span><br><span class="line">            title:&#123;</span><br><span class="line">                text:&#x27;双十一售出占比&#x27;,</span><br><span class="line">                subtext:&quot;我是副标题&quot;,</span><br><span class="line">                left:&#x27;center&#x27;</span><br><span class="line">            &#125;,</span><br><span class="line">            legend:&#123;</span><br><span class="line">                left:0,</span><br><span class="line">                orient:&#x27;vertical&#x27;   //修改朝向布局</span><br><span class="line">            &#125;,</span><br><span class="line">            tooltip:&#123;</span><br><span class="line">                formatter:function(res)&#123;</span><br><span class="line">                    // console.log(res);</span><br><span class="line">                    return res.name+&quot;平台卖出:&quot;+res.value+&quot;\n占比率:&quot;+res.percent</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            series:[</span><br><span class="line">               &#123;</span><br><span class="line">                type:&#x27;pie&#x27;,</span><br><span class="line">                data:[],</span><br><span class="line">                name:&quot;双十一&quot;,</span><br><span class="line">                roseType:&#x27;area&#x27;,    //看起来好像好了，但看起来太尖锐了,我们设置一下边角吧</span><br><span class="line">                itemStyle:&#123;</span><br><span class="line">                    borderRadius:5</span><br><span class="line">                &#125;</span><br><span class="line">               &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;;</span><br><span class="line">        let name=[&#x27;淘宝&#x27;,&quot;京东&quot;,&quot;拼多多&quot;,&quot;抖音&quot;,&quot;其他&quot;];</span><br><span class="line">        for (let x of name)&#123;</span><br><span class="line">            option.series[0].data.push(&#123;</span><br><span class="line">                &#x27;name&#x27; : x,</span><br><span class="line">                &#x27;value&#x27; : Math.floor(Math.random()*1000)</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        mychar.setOption(option);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="复制zoo-sample-cfg一份并改名为zoo-cfg"><a href="#复制zoo-sample-cfg一份并改名为zoo-cfg" class="headerlink" title="复制zoo_sample.cfg一份并改名为zoo.cfg"></a>复制zoo_sample.cfg一份并改名为zoo.cfg</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp zoo_sample.cfg zoo.cfg</span><br></pre></td></tr></table></figure>
-
-<h3 id="打开zoo-cfg"><a href="#打开zoo-cfg" class="headerlink" title="打开zoo.cfg"></a>打开zoo.cfg</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi zoo.cfg</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改文件里的"><a href="#修改文件里的" class="headerlink" title="修改文件里的:"></a>修改文件里的:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dataDir=/usr/local/src/zookeeper/data</span><br></pre></td></tr></table></figure>
-
-<h3 id="在文件末尾添加"><a href="#在文件末尾添加" class="headerlink" title="在文件末尾添加:"></a>在文件末尾添加:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.1=master:2888:3888</span><br><span class="line">server.2=slave1:2888:3888</span><br><span class="line">server.3=slave2:2888:3888</span><br></pre></td></tr></table></figure>
-
-<h3 id="在zookeeper下创建data文件"><a href="#在zookeeper下创建data文件" class="headerlink" title="在zookeeper下创建data文件"></a>在zookeeper下创建data文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/src/zookeeper/data</span><br></pre></td></tr></table></figure>
-
-<h3 id="利用重定向在刚刚建立的data下写进1保存在myid"><a href="#利用重定向在刚刚建立的data下写进1保存在myid" class="headerlink" title="利用重定向在刚刚建立的data下写进1保存在myid"></a>利用重定向在刚刚建立的data下写进1保存在myid</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 1 &gt; /usr/local/src/zookeeper/data/myid</span><br></pre></td></tr></table></figure>
-
-<h3 id="将zookeeper文件分发给slave1-slave2："><a href="#将zookeeper文件分发给slave1-slave2：" class="headerlink" title="将zookeeper文件分发给slave1,slave2："></a>将zookeeper文件分发给slave1,slave2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scp -r /usr/local/src/zookeeper/ slave1:/usr/local/src/</span><br><span class="line">scp -r /usr/local/src/zookeeper/ slave2:/usr/local/src/</span><br><span class="line">scp /etc/profile slave1:/etc/			#顺带分发环境给他们</span><br><span class="line">scp /etc/profile slave2:/etc/</span><br></pre></td></tr></table></figure>
-
-<h3 id="切换slave1"><a href="#切换slave1" class="headerlink" title="切换slave1:"></a>切换slave1:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">echo 2 &gt; /usr/local/src/zookeeper/data/myid</span><br></pre></td></tr></table></figure>
-
-<h3 id="切换slave2"><a href="#切换slave2" class="headerlink" title="切换slave2:"></a>切换slave2:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">echo 3 &gt; /usr/local/src/zookeeper/data/myid</span><br></pre></td></tr></table></figure>
-
-<h3 id="三台输入启动"><a href="#三台输入启动" class="headerlink" title="三台输入启动:"></a>三台输入启动:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zkServer.sh start</span><br><span class="line">zkServer.sh status			#查看状态</span><br></pre></td></tr></table></figure>
-
-<p>其中俩台是follower，一台是leader。</p>
-<h3 id="恭喜你搭建动物园管理器成功了！！！"><a href="#恭喜你搭建动物园管理器成功了！！！" class="headerlink" title="恭喜你搭建动物园管理器成功了！！！"></a>恭喜你搭建动物园管理器成功了！！！</h3><p>​                                                                                                                                        ——周毅盛</p>
-<p>​                                                                                                                                        2022/10/15                                                                                                                    2022/10/15</p>
-
+<p>这就好了</p>
+<h2 id="继续查看效果"><a href="#继续查看效果" class="headerlink" title="继续查看效果:"></a>继续查看效果:</h2><script src="https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"></script>
+<style>
+        #myPie1{
+            height: 600px;
+            width: 600px;
+        }
+</style>
+<div id="myPie1"></div>
+<script>
+        let mychar1=echarts.init(document.getElementById('myPie1'));
+        let option1={
+            title:{
+                text:'双十一售出占比',
+                subtext:"我是副标题",
+                left:'center'
+            },
+            legend:{
+                left:0,
+                orient:'vertical'   //修改朝向布局
+            },
+            tooltip:{
+                formatter:function(res){
+                    // console.log(res);
+                    return res.name+"平台卖出:"+res.value+"\n占比率:"+res.percent
+                }
+            },
+            series:[
+               {
+                type:'pie',
+                data:[],
+                name:"双十一",
+                roseType:'area',    //看起来好像好了，但看起来太尖锐了,我们设置一下边角吧
+                itemStyle:{
+                    borderRadius:5
+                }
+               }
+            ]
+        };
+        let name1=['淘宝',"京东","拼多多","抖音","其他"];
+        for (let x of name1){
+            option1.series[0].data.push({
+                'name' : x,
+                'value' : Math.floor(Math.random()*1000)
+            });
+        }
+        mychar1.setOption(option1);
+</script>
                 
             </div>
             <hr/>
@@ -448,7 +512,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/10/15/Zookeeper%E9%85%8D%E7%BD%AE/">http://example.com/2022/10/15/Zookeeper%E9%85%8D%E7%BD%AE/</a>
+                    <a href="http://example.com/2022/11/12/%E9%A5%BC%E5%9B%BE%E8%BF%9B%E9%98%B6/">http://example.com/2022/11/12/%E9%A5%BC%E5%9B%BE%E8%BF%9B%E9%98%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -486,16 +550,20 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/Echarts/">
+                                    <span class="chip bg-color">Echarts</span>
                                 </a>
                             
-                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                                    <span class="chip bg-color">大数据</span>
+                                <a href="/tags/HTML/">
+                                    <span class="chip bg-color">HTML</span>
                                 </a>
                             
-                                <a href="/tags/Zookeeper/">
-                                    <span class="chip bg-color">Zookeeper</span>
+                                <a href="/tags/CSS/">
+                                    <span class="chip bg-color">CSS</span>
+                                </a>
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
                                 </a>
                             
                         </div>
@@ -541,17 +609,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/10/15/Spark%E9%85%8D%E7%BD%AE/">
+                <a href="/2022/11/12/%E9%A5%BC%E5%9B%BE%E8%BF%9B%E9%98%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Spark安装">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="进阶饼图">
                         
-                        <span class="card-title">Spark安装</span>
+                        <span class="card-title">进阶饼图</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -561,34 +630,39 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Spark/" class="post-category">
-                                    Spark
+                            <a href="/categories/Echarts/" class="post-category">
+                                    Echarts
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/Echarts/">
+                        <span class="chip bg-color">Echarts</span>
                     </a>
                     
-                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                        <span class="chip bg-color">大数据</span>
+                    <a href="/tags/HTML/">
+                        <span class="chip bg-color">HTML</span>
                     </a>
                     
-                    <a href="/tags/Spark/">
-                        <span class="chip bg-color">Spark</span>
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>
@@ -602,13 +676,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/15/Hadoop%E5%85%A8%E5%88%86%E5%B8%83/">
+                <a href="/2022/11/12/%E5%9F%BA%E7%A1%80%E9%A5%BC%E5%9B%BE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hadoop全分布安装">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="基础饼图">
                         
-                        <span class="card-title">Hadoop全分布安装</span>
+                        <span class="card-title">基础饼图</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -619,14 +693,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hadoop/" class="post-category">
-                                    Hadoop
+                            <a href="/categories/Echarts/" class="post-category">
+                                    Echarts
                                 </a>
                             
                             
@@ -636,16 +710,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/Echarts/">
+                        <span class="chip bg-color">Echarts</span>
                     </a>
                     
-                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                        <span class="chip bg-color">大数据</span>
+                    <a href="/tags/HTML/">
+                        <span class="chip bg-color">HTML</span>
                     </a>
                     
-                    <a href="/tags/Hadoop/">
-                        <span class="chip bg-color">Hadoop</span>
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>
