@@ -386,116 +386,81 @@
 <p><em><strong>确保自己的Linux下已经安装好Hadoop全分布</strong></em></p>
 <h3 id="这边我们先安装scala"><a href="#这边我们先安装scala" class="headerlink" title="这边我们先安装scala"></a>这边我们先安装scala</h3><h3 id="解压root目录下的Scala压缩包文件："><a href="#解压root目录下的Scala压缩包文件：" class="headerlink" title="解压root目录下的Scala压缩包文件："></a>解压root目录下的Scala压缩包文件：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf /root/scala-2.11.0.tgz -C /usr/local/src/</span><br><span class="line">mv /usr/local/src/scala-2.11.0/ /usr/local/src/scala		#对文件夹进行改名</span><br><span class="line">vi /etc/profile				#编辑环境</span><br></pre></td></tr></table></figure>
 
-<p>在末尾添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export SCALA_HOME=/usr/local/src/scala</span><br><span class="line">export PATH=$PATH:$SCALA_HOME/bin</span><br></pre></td></tr></table></figure>
+<h3 id="在末尾添加："><a href="#在末尾添加：" class="headerlink" title="在末尾添加："></a>在末尾添加：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export SCALA_HOME=/usr/local/src/scala</span><br><span class="line">export PATH=$PATH:$SCALA_HOME/bin</span><br></pre></td></tr></table></figure>
 
-<p>执行环境配置:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">scala -version			#查看是否安装成功和版本号</span><br></pre></td></tr></table></figure>
+<h3 id="执行环境配置"><a href="#执行环境配置" class="headerlink" title="执行环境配置:"></a>执行环境配置:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">scala -version			#查看是否安装成功和版本号</span><br></pre></td></tr></table></figure>
 
-<p>把Scala分发给slave1和slave2</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scp -r /usr/local/src/scala/ slave1:/usr/local/src/</span><br><span class="line">scp -r /usr/local/src/scala/ slave2:/usr/local/src/</span><br><span class="line">scp /etc/profile slave1:/etc/				#顺带配置环境也分发给他们</span><br><span class="line">scp /etc/profile slave2:/etc/</span><br></pre></td></tr></table></figure>
+<h3 id="把Scala分发给slave1和slave2"><a href="#把Scala分发给slave1和slave2" class="headerlink" title="把Scala分发给slave1和slave2"></a>把Scala分发给slave1和slave2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scp -r /usr/local/src/scala/ slave1:/usr/local/src/</span><br><span class="line">scp -r /usr/local/src/scala/ slave2:/usr/local/src/</span><br><span class="line">scp /etc/profile slave1:/etc/				#顺带配置环境也分发给他们</span><br><span class="line">scp /etc/profile slave2:/etc/</span><br></pre></td></tr></table></figure>
 
-<p>切换slave1：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">scala -version			#查看是否安装成功和版本号</span><br></pre></td></tr></table></figure>
+<h3 id="切换slave1："><a href="#切换slave1：" class="headerlink" title="切换slave1："></a>切换slave1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">scala -version			#查看是否安装成功和版本号</span><br></pre></td></tr></table></figure>
 
-<p>切换slave2:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">scala -version			#查看是否安装成功和版本号</span><br></pre></td></tr></table></figure>
+<h3 id="切换slave2"><a href="#切换slave2" class="headerlink" title="切换slave2:"></a>切换slave2:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">scala -version			#查看是否安装成功和版本号</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="到安装spark啦！！！"><a href="#到安装spark啦！！！" class="headerlink" title="到安装spark啦！！！"></a>到安装spark啦！！！</h3><h3 id="解压root目录下的Spark压缩包文件"><a href="#解压root目录下的Spark压缩包文件" class="headerlink" title="解压root目录下的Spark压缩包文件:"></a>解压root目录下的Spark压缩包文件:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf /root/spark-2.1.1-bin-hadoop2.7.tgz -C /usr/local/src/</span><br><span class="line">mv /usr/local/src/spark-2.1.1-bin-hadoop2.7/ /usr/local/src/spark		#对文件夹进行改名</span><br><span class="line">vi /etc/profile					#修改环境变量</span><br></pre></td></tr></table></figure>
+<h2 id="到安装spark啦！！！"><a href="#到安装spark啦！！！" class="headerlink" title="到安装spark啦！！！"></a>到安装spark啦！！！</h2><h3 id="解压root目录下的Spark压缩包文件"><a href="#解压root目录下的Spark压缩包文件" class="headerlink" title="解压root目录下的Spark压缩包文件:"></a>解压root目录下的Spark压缩包文件:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf /root/spark-2.1.1-bin-hadoop2.7.tgz -C /usr/local/src/</span><br><span class="line">mv /usr/local/src/spark-2.1.1-bin-hadoop2.7/ /usr/local/src/spark		#对文件夹进行改名</span><br><span class="line">vi /etc/profile					#修改环境变量</span><br></pre></td></tr></table></figure>
 
-<p>在尾部添加:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export SPARK_HOME=/usr/local/src/spark</span><br><span class="line">export PATH=$PATH:$SPARK_HOME/bin</span><br></pre></td></tr></table></figure>
+<h3 id="在尾部添加"><a href="#在尾部添加" class="headerlink" title="在尾部添加:"></a>在尾部添加:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export SPARK_HOME=/usr/local/src/spark</span><br><span class="line">export PATH=$PATH:$SPARK_HOME/bin</span><br></pre></td></tr></table></figure>
 
-<p>执行配置文件:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<h3 id="执行配置文件"><a href="#执行配置文件" class="headerlink" title="执行配置文件:"></a>执行配置文件:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
 
-<p>切换到spark目录下的conf文件夹进行修改里面的配置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/spark/conf/</span><br></pre></td></tr></table></figure>
+<h3 id="切换到spark目录下的conf文件夹进行修改里面的配置"><a href="#切换到spark目录下的conf文件夹进行修改里面的配置" class="headerlink" title="切换到spark目录下的conf文件夹进行修改里面的配置"></a>切换到spark目录下的conf文件夹进行修改里面的配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/spark/conf/</span><br></pre></td></tr></table></figure>
 
-<p>复制spark-env.sh.template一份并改名为spark-env.sh</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp spark-env.sh.template spark-env.sh</span><br></pre></td></tr></table></figure>
+<h3 id="复制spark-env-sh-template一份并改名为spark-env-sh"><a href="#复制spark-env-sh-template一份并改名为spark-env-sh" class="headerlink" title="复制spark-env.sh.template一份并改名为spark-env.sh"></a>复制spark-env.sh.template一份并改名为spark-env.sh</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp spark-env.sh.template spark-env.sh</span><br></pre></td></tr></table></figure>
 
-<p>打开spark-env.sh文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi spark-env.sh</span><br></pre></td></tr></table></figure>
+<h3 id="打开spark-env-sh文件"><a href="#打开spark-env-sh文件" class="headerlink" title="打开spark-env.sh文件"></a>打开spark-env.sh文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi spark-env.sh</span><br></pre></td></tr></table></figure>
 
-<p>在尾部添加:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/src/jdk</span><br><span class="line">export HADOOP_CONF_DIR=/usr/local/src/hadoop/etc/hadoop</span><br><span class="line"></span><br><span class="line">#下面是可选</span><br><span class="line">export SPARK_MASTER_HOST=master</span><br><span class="line">export SPARK_WORKER_CORES=2				#cpu核数</span><br><span class="line">export SPARK_WORKER_MEMORY=2g			#内存大小</span><br></pre></td></tr></table></figure>
+<h3 id="在尾部添加-1"><a href="#在尾部添加-1" class="headerlink" title="在尾部添加:"></a>在尾部添加:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/src/jdk</span><br><span class="line">export HADOOP_CONF_DIR=/usr/local/src/hadoop/etc/hadoop</span><br><span class="line"></span><br><span class="line">#下面是可选</span><br><span class="line">export SPARK_MASTER_HOST=master</span><br><span class="line">export SPARK_WORKER_CORES=2				#cpu核数</span><br><span class="line">export SPARK_WORKER_MEMORY=2g			#内存大小</span><br></pre></td></tr></table></figure>
 
-<p>复制slaves.template一份并改名为slaves:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp slaves.template  slaves</span><br></pre></td></tr></table></figure>
+<h3 id="复制slaves-template一份并改名为slaves"><a href="#复制slaves-template一份并改名为slaves" class="headerlink" title="复制slaves.template一份并改名为slaves:"></a>复制slaves.template一份并改名为slaves:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp slaves.template  slaves</span><br></pre></td></tr></table></figure>
 
-<p>打开slaves文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi slaves</span><br></pre></td></tr></table></figure>
+<h3 id="打开slaves文件"><a href="#打开slaves文件" class="headerlink" title="打开slaves文件"></a>打开slaves文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi slaves</span><br></pre></td></tr></table></figure>
 
-<p>把底部的localhost改为:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">slave1</span><br><span class="line">slave2</span><br></pre></td></tr></table></figure>
+<h3 id="把底部的localhost改为"><a href="#把底部的localhost改为" class="headerlink" title="把底部的localhost改为:"></a>把底部的localhost改为:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">slave1</span><br><span class="line">slave2</span><br></pre></td></tr></table></figure>
 
-<p>把文件分发给slave1，slave2：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scp -r /usr/local/src/spark/ slave1:/usr/local/src/</span><br><span class="line">scp -r /usr/local/src/spark/ slave2:/usr/local/src/</span><br><span class="line">scp /etc/profile slave1:/etc/</span><br><span class="line">scp /etc/profile slave2:/etc/</span><br></pre></td></tr></table></figure>
+<h3 id="把文件分发给slave1，slave2："><a href="#把文件分发给slave1，slave2：" class="headerlink" title="把文件分发给slave1，slave2："></a>把文件分发给slave1，slave2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scp -r /usr/local/src/spark/ slave1:/usr/local/src/</span><br><span class="line">scp -r /usr/local/src/spark/ slave2:/usr/local/src/</span><br><span class="line">scp /etc/profile slave1:/etc/</span><br><span class="line">scp /etc/profile slave2:/etc/</span><br></pre></td></tr></table></figure>
 
-<p>切换slave1：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<h3 id="切换slave1：-1"><a href="#切换slave1：-1" class="headerlink" title="切换slave1："></a>切换slave1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
 
-<p>切换slave2:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<h3 id="切换slave2-1"><a href="#切换slave2-1" class="headerlink" title="切换slave2:"></a>切换slave2:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
 
-<p>恭喜你搭建完成了！！！</p>
-<p>快去试着启动spark吧</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/src/spark/sbin/start-all.sh </span><br></pre></td></tr></table></figure>
+<h2 id="恭喜你搭建完成了！！！"><a href="#恭喜你搭建完成了！！！" class="headerlink" title="恭喜你搭建完成了！！！"></a>恭喜你搭建完成了！！！</h2><h3 id="快去试着启动spark吧"><a href="#快去试着启动spark吧" class="headerlink" title="快去试着启动spark吧"></a>快去试着启动spark吧</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/src/spark/sbin/start-all.sh </span><br></pre></td></tr></table></figure>
 
-<p>三台机子分别输入:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br></pre></td></tr></table></figure>
+<h3 id="三台机子分别输入"><a href="#三台机子分别输入" class="headerlink" title="三台机子分别输入:"></a>三台机子分别输入:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br></pre></td></tr></table></figure>
 
-<p>在master下有:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">17904 Jps</span><br><span class="line">17826 Master</span><br><span class="line">16892 SecondaryNameNode</span><br><span class="line">17052 ResourceManager</span><br><span class="line">16702 NameNode</span><br></pre></td></tr></table></figure>
+<h3 id="在master下有"><a href="#在master下有" class="headerlink" title="在master下有:"></a>在master下有:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">17904 Jps</span><br><span class="line">17826 Master</span><br><span class="line">16892 SecondaryNameNode</span><br><span class="line">17052 ResourceManager</span><br><span class="line">16702 NameNode</span><br></pre></td></tr></table></figure>
 
-<p>在slave1:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">10193 Worker</span><br><span class="line">10244 Jps</span><br><span class="line">1848 DataNode</span><br><span class="line">1946 NodeManager</span><br></pre></td></tr></table></figure>
+<h3 id="在slave1"><a href="#在slave1" class="headerlink" title="在slave1:"></a>在slave1:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">10193 Worker</span><br><span class="line">10244 Jps</span><br><span class="line">1848 DataNode</span><br><span class="line">1946 NodeManager</span><br></pre></td></tr></table></figure>
 
-<p>在slave2:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">10161 Worker</span><br><span class="line">1844 DataNode</span><br><span class="line">10213 Jps</span><br><span class="line">1942 NodeManager</span><br></pre></td></tr></table></figure>
+<h3 id="在slave2"><a href="#在slave2" class="headerlink" title="在slave2:"></a>在slave2:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">10161 Worker</span><br><span class="line">1844 DataNode</span><br><span class="line">10213 Jps</span><br><span class="line">1942 NodeManager</span><br></pre></td></tr></table></figure>
 
-<p>查看cpu核数:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo |grep proc</span><br></pre></td></tr></table></figure>
+<h3 id="查看cpu核数"><a href="#查看cpu核数" class="headerlink" title="查看cpu核数:"></a>查看cpu核数:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo |grep proc</span><br></pre></td></tr></table></figure>
 
-<p>查看详细信息:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free</span><br></pre></td></tr></table></figure>
+<h3 id="查看详细信息"><a href="#查看详细信息" class="headerlink" title="查看详细信息:"></a>查看详细信息:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free</span><br></pre></td></tr></table></figure>
 
 <p>我们可以访问<a target="_blank" rel="noopener" href="http://192.168.247.3:8080/">http://192.168.247.3:8080</a></p>
-<h3 id="接下去是对Spark进行测试"><a href="#接下去是对Spark进行测试" class="headerlink" title="接下去是对Spark进行测试"></a>接下去是对Spark进行测试</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-submit --class org.apache.spark.examples.SparkPi --master spark://master:7077 /usr/local/src/spark/examples/jars/spark-examples_2.11-2.1.1.jar </span><br></pre></td></tr></table></figure>
+<h2 id="接下去是对Spark进行测试"><a href="#接下去是对Spark进行测试" class="headerlink" title="接下去是对Spark进行测试"></a>接下去是对Spark进行测试</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-submit --class org.apache.spark.examples.SparkPi --master spark://master:7077 /usr/local/src/spark/examples/jars/spark-examples_2.11-2.1.1.jar </span><br></pre></td></tr></table></figure>
 
-<p>当看到:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pi is roughly 3.1354156770783854</span><br></pre></td></tr></table></figure>
+<h3 id="当看到"><a href="#当看到" class="headerlink" title="当看到:"></a>当看到:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pi is roughly 3.1354156770783854</span><br></pre></td></tr></table></figure>
 
-<p>表示运行成功！！！</p>
-<h3 id="接下去就是spark的yarn模式啦"><a href="#接下去就是spark的yarn模式啦" class="headerlink" title="接下去就是spark的yarn模式啦~~~"></a>接下去就是spark的yarn模式啦~~~</h3><p>编辑hadoop配置下的yarn-site.xml 文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/local/src/hadoop/etc/hadoop/yarn-site.xml </span><br></pre></td></tr></table></figure>
+<h3 id="表示运行成功！！！"><a href="#表示运行成功！！！" class="headerlink" title="表示运行成功！！！"></a>表示运行成功！！！</h3><h2 id="接下去就是spark的yarn模式啦"><a href="#接下去就是spark的yarn模式啦" class="headerlink" title="接下去就是spark的yarn模式啦~~~"></a>接下去就是spark的yarn模式啦~~~</h2><h3 id="编辑hadoop配置下的yarn-site-xml-文件"><a href="#编辑hadoop配置下的yarn-site-xml-文件" class="headerlink" title="编辑hadoop配置下的yarn-site.xml 文件"></a>编辑hadoop配置下的yarn-site.xml 文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/local/src/hadoop/etc/hadoop/yarn-site.xml </span><br></pre></td></tr></table></figure>
 
-<p>在<configuration></configuration>中间添加:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;</span><br><span class="line">&lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="在中间添加"><a href="#在中间添加" class="headerlink" title="在中间添加:"></a>在<configuration></configuration>中间添加:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;</span><br><span class="line">&lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
 
-<p>将被修改的文件分发给slave1，slave2覆盖原来的配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp /usr/local/src/hadoop/etc/hadoop/yarn-site.xml slave1:/usr/local/src/hadoop/etc/hadoop/</span><br><span class="line">scp /usr/local/src/hadoop/etc/hadoop/yarn-site.xml slave2:/usr/local/src/hadoop/etc/hadoop/</span><br></pre></td></tr></table></figure>
+<h3 id="将被修改的文件分发给slave1，slave2覆盖原来的配置："><a href="#将被修改的文件分发给slave1，slave2覆盖原来的配置：" class="headerlink" title="将被修改的文件分发给slave1，slave2覆盖原来的配置："></a>将被修改的文件分发给slave1，slave2覆盖原来的配置：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp /usr/local/src/hadoop/etc/hadoop/yarn-site.xml slave1:/usr/local/src/hadoop/etc/hadoop/</span><br><span class="line">scp /usr/local/src/hadoop/etc/hadoop/yarn-site.xml slave2:/usr/local/src/hadoop/etc/hadoop/</span><br></pre></td></tr></table></figure>
 
-<p>重启yarn服务:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stop-yarn.sh</span><br><span class="line">start-yarn.sh </span><br></pre></td></tr></table></figure>
+<h3 id="重启yarn服务"><a href="#重启yarn服务" class="headerlink" title="重启yarn服务:"></a>重启yarn服务:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stop-yarn.sh</span><br><span class="line">start-yarn.sh </span><br></pre></td></tr></table></figure>
 
-<p>对yarn模式进行测试:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-submit --class org.apache.spark.examples.SparkPi --master yarn /usr/local/src/spark/examples/jars/spark-examples_2.11-2.1.1.jar </span><br></pre></td></tr></table></figure>
+<h3 id="对yarn模式进行测试"><a href="#对yarn模式进行测试" class="headerlink" title="对yarn模式进行测试:"></a>对yarn模式进行测试:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-submit --class org.apache.spark.examples.SparkPi --master yarn /usr/local/src/spark/examples/jars/spark-examples_2.11-2.1.1.jar </span><br></pre></td></tr></table></figure>
 
-<p>当看到:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pi is roughly 3.135715678578393</span><br></pre></td></tr></table></figure>
+<h3 id="当看到-1"><a href="#当看到-1" class="headerlink" title="当看到:"></a>当看到:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pi is roughly 3.135715678578393</span><br></pre></td></tr></table></figure>
 
-<p>则证明成功！！！</p>
-<h3 id="我们在试试跑本地的吧"><a href="#我们在试试跑本地的吧" class="headerlink" title="我们在试试跑本地的吧"></a>我们在试试跑本地的吧</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-submit --class org.apache.spark.examples.SparkPi --master local[*] /usr/local/src/spark/examples/jars/spark-examples_2.11-2.1.1.jar </span><br></pre></td></tr></table></figure>
+<h3 id="则证明成功！！！"><a href="#则证明成功！！！" class="headerlink" title="则证明成功！！！"></a>则证明成功！！！</h3><h2 id="我们在试试跑本地的吧"><a href="#我们在试试跑本地的吧" class="headerlink" title="我们在试试跑本地的吧"></a>我们在试试跑本地的吧</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-submit --class org.apache.spark.examples.SparkPi --master local[*] /usr/local/src/spark/examples/jars/spark-examples_2.11-2.1.1.jar </span><br></pre></td></tr></table></figure>
 
-<p>当看到:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pi is roughly 3.1391956959784797</span><br></pre></td></tr></table></figure>
+<h3 id="当看到-2"><a href="#当看到-2" class="headerlink" title="当看到:"></a>当看到:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pi is roughly 3.1391956959784797</span><br></pre></td></tr></table></figure>
 
 <p>​                                                                                                                                            ——周毅盛</p>
-<p>​                                                                                                                                            2022/10/15</p>
+<p>​                                                                                                                                            2022/10/15                                                                                                                                    2022/10/15</p>
 
                 
             </div>

@@ -385,33 +385,26 @@
 <p>准备如下环境</p>
 <p>我是直接安装在Hadoop下的，MySQL也可以单独安装在一个全新的Linux下，安装MySQL是为了hive而做的铺垫。</p>
 <p>我们来到root目录下</p>
-<p>在root目录下我们发现了MySQL的压缩包对其进行解压:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar -xf /root/mysql-5.7.31-1.el7.x86_64.rpm-bundle.tar #这里我直接解压到当前目录下了</span><br><span class="line">yum remove mariadb-libs				#删除mariadb-libs以防等等版本不兼容</span><br><span class="line">#依次进行以下安装，顺序注意不要乱哦！！！</span><br><span class="line">rpm -ivh mysql-community-common-5.7.31-1.el7.x86_64.rpm </span><br><span class="line">rpm -ivh mysql-community-libs*.rpm</span><br><span class="line">rpm -ivh mysql-community-client-5.7.31-1.el7.x86_64.rpm </span><br><span class="line">rpm -ivh --nodeps mysql-community-server-5.7.31-1.el7.x86_64.rpm </span><br><span class="line">rm -rf mysql-community-*			#删除没用的文件，因为都已经安装完成了</span><br></pre></td></tr></table></figure>
+<h3 id="在root目录下我们发现了MySQL的压缩包对其进行解压"><a href="#在root目录下我们发现了MySQL的压缩包对其进行解压" class="headerlink" title="在root目录下我们发现了MySQL的压缩包对其进行解压:"></a>在root目录下我们发现了MySQL的压缩包对其进行解压:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar -xf /root/mysql-5.7.31-1.el7.x86_64.rpm-bundle.tar #这里我直接解压到当前目录下了</span><br><span class="line">yum remove mariadb-libs				#删除mariadb-libs以防等等版本不兼容</span><br><span class="line">#依次进行以下安装，顺序注意不要乱哦！！！</span><br><span class="line">rpm -ivh mysql-community-common-5.7.31-1.el7.x86_64.rpm </span><br><span class="line">rpm -ivh mysql-community-libs*.rpm</span><br><span class="line">rpm -ivh mysql-community-client-5.7.31-1.el7.x86_64.rpm </span><br><span class="line">rpm -ivh --nodeps mysql-community-server-5.7.31-1.el7.x86_64.rpm </span><br><span class="line">rm -rf mysql-community-*			#删除没用的文件，因为都已经安装完成了</span><br></pre></td></tr></table></figure>
 
 <p>没错就是这么简单，这就安装成功啦！！！</p>
-<p>接下来我们去启动MySQL的服务</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld</span><br><span class="line">systemctl enable mysqld		#并设置开机自启</span><br></pre></td></tr></table></figure>
+<h3 id="接下来我们去启动MySQL的服务"><a href="#接下来我们去启动MySQL的服务" class="headerlink" title="接下来我们去启动MySQL的服务"></a>接下来我们去启动MySQL的服务</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld</span><br><span class="line">systemctl enable mysqld		#并设置开机自启</span><br></pre></td></tr></table></figure>
 
-<p>那既然我们启动了，不妨试试连接MySQL数据库呗！！！</p>
-<p>不过我们记得学校机房的MySQL用户名好像是root密码是123456</p>
+<h1 id="那既然我们启动了，不妨试试连接MySQL数据库呗！！！"><a href="#那既然我们启动了，不妨试试连接MySQL数据库呗！！！" class="headerlink" title="那既然我们启动了，不妨试试连接MySQL数据库呗！！！"></a>那既然我们启动了，不妨试试连接MySQL数据库呗！！！</h1><p>不过我们记得学校机房的MySQL用户名好像是root密码是123456</p>
 <p>不妨我们来试试登录看可以用吗！！！</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure>
 
-<p>哦吼，弹出错误了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql: [Warning] Using a password on the command line interface can be insecure.</span><br><span class="line">ERROR 1045 (28000): Access denied for user &#x27;root&#x27;@&#x27;localhost&#x27; (using password: YES)</span><br></pre></td></tr></table></figure>
+<h3 id="哦吼，弹出错误了"><a href="#哦吼，弹出错误了" class="headerlink" title="哦吼，弹出错误了"></a>哦吼，弹出错误了</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql: [Warning] Using a password on the command line interface can be insecure.</span><br><span class="line">ERROR 1045 (28000): Access denied for user &#x27;root&#x27;@&#x27;localhost&#x27; (using password: YES)</span><br></pre></td></tr></table></figure>
 
-<p>然后我们都知道MySQL肯定有root用户，但密码到底多少呢？</p>
-<p>是不是废了，没办法了。</p>
+<h3 id="然后我们都知道MySQL肯定有root用户，但密码到底多少呢？"><a href="#然后我们都知道MySQL肯定有root用户，但密码到底多少呢？" class="headerlink" title="然后我们都知道MySQL肯定有root用户，但密码到底多少呢？"></a>然后我们都知道MySQL肯定有root用户，但密码到底多少呢？</h3><p>是不是废了，没办法了。</p>
 <p>要不rm -rf /* 删库跑路吧</p>
 <p>哈哈哈！！！</p>
 <p>开玩笑的，其实我们可以通过查看日志去找密码的：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /var/log/mysqld.log | grep password</span><br></pre></td></tr></table></figure>
 
-<p>控制台就会有密码啦：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@localhost: .ZUeVuap?1rV</span><br></pre></td></tr></table></figure>
+<h3 id="控制台就会有密码啦："><a href="#控制台就会有密码啦：" class="headerlink" title="控制台就会有密码啦："></a>控制台就会有密码啦：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@localhost: .ZUeVuap?1rV</span><br></pre></td></tr></table></figure>
 
-<p>试着去连接吧，哦耶，既然登录成功了，那我们就把root用户改个密码吧。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alter user &quot;root&quot;@&quot;localhost&quot; identified by &quot;Password123$&quot;;</span><br><span class="line">grant all privileges on *.* to &quot;root&quot;@&quot;%&quot; identified by &quot;Password123$&quot;;</span><br><span class="line">flush privileges;</span><br><span class="line">exit;</span><br></pre></td></tr></table></figure>
+<h3 id="试着去连接吧，哦耶，既然登录成功了，那我们就把root用户改个密码吧。"><a href="#试着去连接吧，哦耶，既然登录成功了，那我们就把root用户改个密码吧。" class="headerlink" title="试着去连接吧，哦耶，既然登录成功了，那我们就把root用户改个密码吧。"></a>试着去连接吧，哦耶，既然登录成功了，那我们就把root用户改个密码吧。</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alter user &quot;root&quot;@&quot;localhost&quot; identified by &quot;Password123$&quot;;</span><br><span class="line">grant all privileges on *.* to &quot;root&quot;@&quot;%&quot; identified by &quot;Password123$&quot;;</span><br><span class="line">flush privileges;</span><br><span class="line">exit;</span><br></pre></td></tr></table></figure>
 
 <p>本期内容到此结束啦！！！</p>
 <p>我们下期再见！！！</p>
@@ -544,9 +537,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Flink全分布安装">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Flink安装">
                         
-                        <span class="card-title">Flink全分布安装</span>
+                        <span class="card-title">Flink安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Flume安装, 小周博客">
-    <meta name="description" content="Flume配置实验前准备：​                                                                                                    ———只有不">
+    <meta name="keywords" content="Redis安装部署, 小周博客">
+    <meta name="description" content="实操：Redis安装部署【环境】​    防火墙、SELinux均已关闭。​    安装包位于root目录下。
+因为我是部署在docker容器下的centos7下的，很多依赖都没安装,我们先安装一下依赖吧.1yum -y install g">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Flume安装 | 小周博客</title>
+    <title>Redis安装部署 | 小周博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -297,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Flume安装</h1>
+                    <h1 class="description center-align post-title">Redis安装部署</h1>
                 </div>
             </div>
         </div>
@@ -334,8 +335,8 @@
                                 <span class="chip bg-color">大数据</span>
                             </a>
                         
-                            <a href="/tags/Flume/">
-                                <span class="chip bg-color">Flume</span>
+                            <a href="/tags/Redis/">
+                                <span class="chip bg-color">Redis</span>
                             </a>
                         
                     </div>
@@ -346,8 +347,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Flume/" class="post-category">
-                                Flume
+                            <a href="/categories/Redis/" class="post-category">
+                                Redis
                             </a>
                         
                     </div>
@@ -359,7 +360,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-15
+                    2022-11-12
                 </div>
                 
 
@@ -380,44 +381,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Flume配置"><a href="#Flume配置" class="headerlink" title="Flume配置"></a>Flume配置</h1><h2 id="实验前准备："><a href="#实验前准备：" class="headerlink" title="实验前准备："></a>实验前准备：</h2><p>​                                                                                                    ———只有不断学习方能顺应时代发展。</p>
-<p>废话不多说，进入正题：</p>
-<p>准备如下环境</p>
-<p>这个啥都不需要准备，开玩笑的哈哈！！！</p>
-<p>flume是干嘛用的，有想过这个问题吗？？？</p>
-<h3 id="这边我从百度摘抄一小段介绍一下flume"><a href="#这边我从百度摘抄一小段介绍一下flume" class="headerlink" title="这边我从百度摘抄一小段介绍一下flume"></a>这边我从百度摘抄一小段介绍一下flume</h3><p>Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据；同时，Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力。</p>
-<h3 id="进入正题："><a href="#进入正题：" class="headerlink" title="进入正题："></a>进入正题：</h3><p>安装其实很简单也要学会如何使用哦！！！</p>
-<h3 id="在root目录下有flume的压缩包进行解压"><a href="#在root目录下有flume的压缩包进行解压" class="headerlink" title="在root目录下有flume的压缩包进行解压:"></a>在root目录下有flume的压缩包进行解压:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf /root/apache-flume-1.7.0-bin.tar.gz -C /usr/local/src/</span><br><span class="line">mv /usr/local/src/apache-flume-1.7.0-bin/ /usr/local/src/flume	#依旧对文件夹进行改名</span><br><span class="line">vi /etc/profile		#配置环境变量</span><br></pre></td></tr></table></figure>
+                <h1 id="实操：Redis安装部署"><a href="#实操：Redis安装部署" class="headerlink" title="实操：Redis安装部署"></a>实操：Redis安装部署</h1><h2 id="【环境】"><a href="#【环境】" class="headerlink" title="【环境】"></a>【环境】</h2><p>​    防火墙、SELinux均已关闭。<br>​    安装包位于root目录下。</p>
+<h3 id="因为我是部署在docker容器下的centos7下的，很多依赖都没安装-我们先安装一下依赖吧"><a href="#因为我是部署在docker容器下的centos7下的，很多依赖都没安装-我们先安装一下依赖吧" class="headerlink" title="因为我是部署在docker容器下的centos7下的，很多依赖都没安装,我们先安装一下依赖吧."></a>因为我是部署在docker容器下的centos7下的，很多依赖都没安装,我们先安装一下依赖吧.</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc automake autoconf libtool make</span><br></pre></td></tr></table></figure>
 
-<h3 id="在尾部添加"><a href="#在尾部添加" class="headerlink" title="在尾部添加:"></a>在尾部添加:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export FLUME_HOME=/usr/local/src/flume</span><br><span class="line">export PATH=$PATH:$FLUME_HOME/bin</span><br></pre></td></tr></table></figure>
 
-<h3 id="执行生效环境"><a href="#执行生效环境" class="headerlink" title="执行生效环境:"></a>执行生效环境:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
 
-<h3 id="查看版本号"><a href="#查看版本号" class="headerlink" title="查看版本号:"></a>查看版本号:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flume-ng version</span><br></pre></td></tr></table></figure>
+<h3 id="把安装包解压到-usr-local-src目录下"><a href="#把安装包解压到-usr-local-src目录下" class="headerlink" title="把安装包解压到/usr/local/src目录下"></a>把安装包解压到/usr/local/src目录下</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf /root/redis-4.0.1.tar.gz -C /usr/local/src/</span><br></pre></td></tr></table></figure>
 
-<h3 id="切换到flume的conf文件夹下配置"><a href="#切换到flume的conf文件夹下配置" class="headerlink" title="切换到flume的conf文件夹下配置"></a>切换到flume的conf文件夹下配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/flume/conf/</span><br></pre></td></tr></table></figure>
+<h3 id="切换到"><a href="#切换到" class="headerlink" title="切换到"></a>切换到</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/redis-4.0.1</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
 
-<h3 id="对文件flume-env-sh-template复制一份改名为flume-env-sh"><a href="#对文件flume-env-sh-template复制一份改名为flume-env-sh" class="headerlink" title="对文件flume-env.sh.template复制一份改名为flume-env.sh"></a>对文件flume-env.sh.template复制一份改名为flume-env.sh</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp flume-env.sh.template flume-env.sh</span><br></pre></td></tr></table></figure>
+<h3 id="如果执行make命令报错：致命错误-jemalloc-jemalloc-h-没有那个文件或目录，则需要在make指定分配器为libc。执行下面命令即可正常编译"><a href="#如果执行make命令报错：致命错误-jemalloc-jemalloc-h-没有那个文件或目录，则需要在make指定分配器为libc。执行下面命令即可正常编译" class="headerlink" title="如果执行make命令报错：致命错误:jemalloc/jemalloc.h: 没有那个文件或目录，则需要在make指定分配器为libc。执行下面命令即可正常编译"></a>如果执行make命令报错：致命错误:jemalloc/jemalloc.h: 没有那个文件或目录，则需要在make指定分配器为libc。执行下面命令即可正常编译</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make MALLOC=libc</span><br></pre></td></tr></table></figure>
 
-<h3 id="编辑flume-env-sh文件"><a href="#编辑flume-env-sh文件" class="headerlink" title="编辑flume-env.sh文件"></a>编辑flume-env.sh文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi flume-env.sh</span><br></pre></td></tr></table></figure>
+<h3 id="再执行一次"><a href="#再执行一次" class="headerlink" title="再执行一次:"></a>再执行一次:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
 
-<h3 id="修改如下"><a href="#修改如下" class="headerlink" title="修改如下:"></a>修改如下:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/src/jdk</span><br></pre></td></tr></table></figure>
+<h3 id="这样就完成编译了，接下去开始安装"><a href="#这样就完成编译了，接下去开始安装" class="headerlink" title="这样就完成编译了，接下去开始安装:"></a>这样就完成编译了，接下去开始安装:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install PREFIX=/usr/local/src/redis-4.0.1</span><br></pre></td></tr></table></figure>
 
-<h3 id="恭喜你学会了搭建flume啦！！！"><a href="#恭喜你学会了搭建flume啦！！！" class="headerlink" title="恭喜你学会了搭建flume啦！！！"></a>恭喜你学会了搭建flume啦！！！</h3><p>但好像还没结束耶！！！</p>
-<p>似乎忘记了啥！！！</p>
-<p>没错，你终于想起来了，还有使用教程！！！</p>
-<h2 id="接下来我们来采集Hadoop日志吧，依旧还是在原来那个目录下没有切换目录哦！！！"><a href="#接下来我们来采集Hadoop日志吧，依旧还是在原来那个目录下没有切换目录哦！！！" class="headerlink" title="接下来我们来采集Hadoop日志吧，依旧还是在原来那个目录下没有切换目录哦！！！"></a>接下来我们来采集Hadoop日志吧，依旧还是在原来那个目录下没有切换目录哦！！！</h2><h3 id="在当前目录下打开simple-hdfs-flume-conf文件"><a href="#在当前目录下打开simple-hdfs-flume-conf文件" class="headerlink" title="在当前目录下打开simple-hdfs-flume.conf文件"></a>在当前目录下打开simple-hdfs-flume.conf文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi simple-hdfs-flume.conf</span><br></pre></td></tr></table></figure>
+<p>这样就安装成功了</p>
+<h2 id="接下来是启动redis"><a href="#接下来是启动redis" class="headerlink" title="接下来是启动redis:"></a>接下来是启动redis:</h2><h3 id="进入我们安装的目录下"><a href="#进入我们安装的目录下" class="headerlink" title="进入我们安装的目录下:"></a>进入我们安装的目录下:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/lcoal/src/redis-4.0.1</span><br><span class="line">./bin/redis-server redis.conf</span><br></pre></td></tr></table></figure>
 
-<h3 id="在末尾处添加"><a href="#在末尾处添加" class="headerlink" title="在末尾处添加:"></a>在末尾处添加:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a1.sources=r1</span><br><span class="line">a1.sinks=k1</span><br><span class="line">a1.channels=c1</span><br><span class="line">a1.sources.r1.type=spooldir</span><br><span class="line">a1.sources.r1.spoolDir=/usr/local/src/hadoop/logs</span><br><span class="line">a1.sources.r1.channels=c1</span><br><span class="line">a1.channels.c1.type=file</span><br><span class="line">a1.sinks.k1.type=hdfs</span><br><span class="line">a1.sinks.k1.hdfs.path=hdfs://master:9000/tmp/flume</span><br><span class="line">a1.sinks.k1.channel=c1</span><br></pre></td></tr></table></figure>
+<h3 id="此时服务就已经启动了，我们可以开启另一个终端试一试"><a href="#此时服务就已经启动了，我们可以开启另一个终端试一试" class="headerlink" title="此时服务就已经启动了，我们可以开启另一个终端试一试"></a>此时服务就已经启动了，我们可以开启另一个终端试一试</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/lcoal/src/redis-4.0.1</span><br><span class="line">./bin/redis-cli</span><br></pre></td></tr></table></figure>
 
-<h3 id="开始采集："><a href="#开始采集：" class="headerlink" title="开始采集："></a>开始采集：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flume-ng agent --conf-file simple-hdfs-flume.conf --name a1</span><br></pre></td></tr></table></figure>
+<h3 id="接下去我们在客户端尝试使用"><a href="#接下去我们在客户端尝试使用" class="headerlink" title="接下去我们在客户端尝试使用:"></a>接下去我们在客户端尝试使用:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping #当返回pong证明安装成功</span><br></pre></td></tr></table></figure>
 
-<h3 id="随便切换一个虚拟机"><a href="#随便切换一个虚拟机" class="headerlink" title="随便切换一个虚拟机:"></a>随便切换一个虚拟机:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -ls /tmp/flume</span><br></pre></td></tr></table></figure>
-
-<p>就会看到一堆日志我们就可以ctrl+c停止master的采集了</p>
-<p>很简单吧！！！</p>
-<p>​                                                                                                                                        ——周毅盛</p>
-<p>​                                                                                                                                        2022/10/15                                                                                                                    2022/10/15</p>
+<p>简单吧，这就结束啦！！！</p>
+<p>我们下期见！</p>
+<p>——周毅盛</p>
+<p>2022年11月12日</p>
 
                 
             </div>
@@ -444,7 +433,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/10/15/flume%E9%85%8D%E7%BD%AE/">http://example.com/2022/10/15/flume%E9%85%8D%E7%BD%AE/</a>
+                    <a href="http://example.com/2022/11/12/Redis%E5%AE%89%E8%A3%85/">http://example.com/2022/11/12/Redis%E5%AE%89%E8%A3%85/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -490,8 +479,8 @@
                                     <span class="chip bg-color">大数据</span>
                                 </a>
                             
-                                <a href="/tags/Flume/">
-                                    <span class="chip bg-color">Flume</span>
+                                <a href="/tags/Redis/">
+                                    <span class="chip bg-color">Redis</span>
                                 </a>
                             
                         </div>
@@ -537,17 +526,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/10/15/MySQL%E9%85%8D%E7%BD%AE/">
+                <a href="/2022/11/12/Redis%E5%AE%89%E8%A3%85/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Mysql安装">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Redis安装部署">
                         
-                        <span class="card-title">Mysql安装</span>
+                        <span class="card-title">Redis安装部署</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -557,21 +547,22 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Mysql/" class="post-category">
-                                    Mysql
+                            <a href="/categories/Redis/" class="post-category">
+                                    Redis
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -583,8 +574,8 @@
                         <span class="chip bg-color">大数据</span>
                     </a>
                     
-                    <a href="/tags/Mysql/">
-                        <span class="chip bg-color">Mysql</span>
+                    <a href="/tags/Redis/">
+                        <span class="chip bg-color">Redis</span>
                     </a>
                     
                 </div>
@@ -598,13 +589,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/15/Spark%E9%85%8D%E7%BD%AE/">
+                <a href="/2022/11/12/%E6%B5%8B%E8%AF%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Spark安装">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="测试">
                         
-                        <span class="card-title">Spark安装</span>
+                        <span class="card-title">测试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -615,35 +606,15 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Spark/" class="post-category">
-                                    Spark
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            小周
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                        <span class="chip bg-color">大数据</span>
-                    </a>
-                    
-                    <a href="/tags/Spark/">
-                        <span class="chip bg-color">Spark</span>
-                    </a>
-                    
                 </div>
                 
             </div>
