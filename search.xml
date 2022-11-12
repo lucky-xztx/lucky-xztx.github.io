@@ -223,7 +223,7 @@
       <link href="/2022/11/12/%E6%B5%8B%E8%AF%95/"/>
       <url>/2022/11/12/%E6%B5%8B%E8%AF%95/</url>
       
-        <content type="html"><![CDATA[<p>放弃很容易，但坚持一定会有收获！</p>]]></content>
+        <content type="html"><![CDATA[<p>放弃很容易，但坚持一定会有收获！<br><img src='/medias/static/bj.jpg'/></p>]]></content>
       
       
       
@@ -277,11 +277,11 @@
       
         <tags>
             
-            <tag> Hadoop </tag>
-            
             <tag> Linux </tag>
             
             <tag> 大数据 </tag>
+            
+            <tag> Hadoop </tag>
             
         </tags>
       
@@ -335,11 +335,11 @@
       
         <tags>
             
+            <tag> Mysql </tag>
+            
             <tag> Linux </tag>
             
             <tag> 大数据 </tag>
-            
-            <tag> Mysql </tag>
             
         </tags>
       
@@ -451,11 +451,11 @@
       
         <tags>
             
-            <tag> Hadoop </tag>
-            
             <tag> Linux </tag>
             
             <tag> 大数据 </tag>
+            
+            <tag> Hadoop </tag>
             
         </tags>
       
