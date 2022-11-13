@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hadoop全分布安装, 小周博客">
-    <meta name="description" content="Hadoop(全分布安装)实验前准备：​                                                                                                    ">
+    <meta name="keywords" content="横向柱状图, 小周博客">
+    <meta name="description" content="横向柱状图昨天我们学习了柱状图，有没有想过把他倒过来呢？？？
+直接上代码
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hadoop全分布安装 | 小周博客</title>
+    <title>横向柱状图 | 小周博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -299,12 +301,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hadoop全分布安装</h1>
+                    <h1 class="description center-align post-title">横向柱状图</h1>
                 </div>
             </div>
         </div>
@@ -328,16 +330,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hadoop/">
-                                <span class="chip bg-color">Hadoop</span>
+                            <a href="/tags/Echarts/">
+                                <span class="chip bg-color">Echarts</span>
                             </a>
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/HTML/">
+                                <span class="chip bg-color">HTML</span>
                             </a>
                         
-                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                                <span class="chip bg-color">大数据</span>
+                            <a href="/tags/CSS/">
+                                <span class="chip bg-color">CSS</span>
+                            </a>
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
                             </a>
                         
                     </div>
@@ -348,8 +354,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Hadoop/" class="post-category">
-                                Hadoop
+                            <a href="/categories/Echarts/" class="post-category">
+                                Echarts
                             </a>
                         
                     </div>
@@ -361,7 +367,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-15
+                    2022-11-13
                 </div>
                 
 
@@ -382,192 +388,85 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Hadoop-全分布安装"><a href="#Hadoop-全分布安装" class="headerlink" title="Hadoop(全分布安装)"></a>Hadoop(全分布安装)</h1><h2 id="实验前准备："><a href="#实验前准备：" class="headerlink" title="实验前准备："></a>实验前准备：</h2><p>​                                                                                                    ———只有不断学习方能顺应时代发展。</p>
-<p>废话不多说，进入正题：</p>
-<p>准备如下环境</p>
-<ol>
-<li>创建一台纯净Linux并配置好静态IP</li>
-<li>克隆俩台Linux</li>
-<li>更改俩台Linux的IP地址( vi /etc/sysconfig/network-scripts/ifcfg-ens33 )</li>
-</ol>
-<p>​    列如：master:192.168.0.2</p>
-<p>​                slave1: 192.168.0.3</p>
-<p>​                slave2: 192.168.0.4</p>
-<h4 id="查询防火墙状态："><a href="#查询防火墙状态：" class="headerlink" title="查询防火墙状态："></a>查询防火墙状态：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
+                <h1 id="横向柱状图"><a href="#横向柱状图" class="headerlink" title="横向柱状图"></a>横向柱状图</h1><p>昨天我们学习了柱状图，有没有想过把他倒过来呢？？？</p>
+<p>直接上代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>横向柱状图<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-id">#myBar</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">600px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">400px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myBar&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> mychar=echarts.<span class="title function_">init</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myBar&#x27;</span>));</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> option=&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">title</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">text</span>:<span class="string">&#x27;数据是随机生成的，不做任何参考作用&#x27;</span></span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">xAxis</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">type</span>:<span class="string">&#x27;value&#x27;</span></span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">yAxis</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">type</span>:<span class="string">&#x27;category&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">data</span>:[<span class="string">&#x27;淘宝&#x27;</span>,<span class="string">&#x27;京东&#x27;</span>,<span class="string">&#x27;拼多多&#x27;</span>,<span class="string">&#x27;抖音&#x27;</span>,<span class="string">&#x27;其他&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">inverse</span>: <span class="literal">true</span>           <span class="comment">//顺序自上往下</span></span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">series</span>:[</span></span><br><span class="line"><span class="language-javascript">                &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">type</span>:<span class="string">&#x27;bar&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">name</span>:<span class="string">&#x27;双十一&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">data</span>:[],</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">realtimeSort</span>:<span class="literal">true</span>,   <span class="comment">//开启排序功能</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">label</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">                        <span class="attr">show</span>:<span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">                        <span class="attr">position</span>:<span class="string">&#x27;right&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                        <span class="attr">valueAnimation</span>:<span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">                    &#125;,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">animationDuration</span>: <span class="number">0</span>,       <span class="comment">//设置默认数据动画的时长</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">animationDurationUpdate</span>: <span class="number">1000</span>,      <span class="comment">//设置数据更新动画的时长</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">animationEasing</span>: <span class="string">&#x27;linear&#x27;</span>,      <span class="comment">//设置默认缓动效果</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">animationEasingUpdate</span>: <span class="string">&#x27;linear&#x27;</span>,     <span class="comment">//设置更新缓动效果</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">itemStyle</span>:&#123;         <span class="comment">//这个是设置图形样式</span></span></span><br><span class="line"><span class="language-javascript">                        <span class="attr">normal</span>:&#123;    <span class="comment">//单词翻译正常的</span></span></span><br><span class="line"><span class="language-javascript">                            <span class="attr">color</span>:</span></span><br><span class="line"><span class="language-javascript">                            <span class="keyword">function</span>(<span class="params"></span>)&#123;    <span class="comment">//设置颜色这边我们可以写个函数然后给返回值</span></span></span><br><span class="line"><span class="language-javascript">                                <span class="keyword">return</span> <span class="string">&#x27;rgb(&#x27;</span>+<span class="title class_">Math</span>.<span class="title function_">round</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()*<span class="number">255</span>)+<span class="string">&#x27;,&#x27;</span>+</span></span><br><span class="line"><span class="language-javascript">                                +<span class="title class_">Math</span>.<span class="title function_">round</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()*<span class="number">255</span>)+<span class="string">&#x27;,&#x27;</span></span></span><br><span class="line"><span class="language-javascript">                                +<span class="title class_">Math</span>.<span class="title function_">round</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()*<span class="number">255</span>)+<span class="string">&quot;)&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">                            &#125;</span></span><br><span class="line"><span class="language-javascript">                                </span></span><br><span class="line"><span class="language-javascript">                        &#125;</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">                </span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">            ]</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>;i &lt; option.<span class="property">yAxis</span>.<span class="property">data</span>.<span class="property">length</span>;i++)&#123;</span></span><br><span class="line"><span class="language-javascript">            option.<span class="property">series</span>[<span class="number">0</span>].<span class="property">data</span>.<span class="title function_">push</span>(</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Math</span>.<span class="title function_">round</span>((<span class="title class_">Math</span>.<span class="title function_">random</span>()+<span class="number">1</span>)*<span class="number">1000</span>)</span></span><br><span class="line"><span class="language-javascript">            )</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// console.log(1);</span></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        mychar.<span class="title function_">setOption</span>(option);</span></span><br><span class="line"><span class="language-javascript">        <span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;option.<span class="property">series</span>[<span class="number">0</span>].<span class="property">data</span>.<span class="property">length</span>;++i)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span> (<span class="title class_">Math</span>.<span class="title function_">random</span>()&gt;<span class="number">0.9</span>)&#123;     <span class="comment">//判断是否大于随机数0.9</span></span></span><br><span class="line"><span class="language-javascript">                    option.<span class="property">series</span>[<span class="number">0</span>].<span class="property">data</span>[i]+=<span class="title class_">Math</span>.<span class="title function_">round</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()*<span class="number">2000</span>)  <span class="comment">//变换较大</span></span></span><br><span class="line"><span class="language-javascript">                &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="language-javascript">                    option.<span class="property">series</span>[<span class="number">0</span>].<span class="property">data</span>[i]+=<span class="title class_">Math</span>.<span class="title function_">round</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()*<span class="number">200</span>)   <span class="comment">//变化较小</span></span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">            mychar.<span class="title function_">setOption</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">series</span>:[</span></span><br><span class="line"><span class="language-javascript">                    &#123;</span></span><br><span class="line"><span class="language-javascript">                        <span class="attr">type</span>:<span class="string">&#x27;bar&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                        <span class="attr">data</span>:option.<span class="property">series</span>[<span class="number">0</span>].<span class="property">data</span>      <span class="comment">//option是可以重复复用的，当设置一次如果不刷新其他属性可以直接复用填入数据</span></span></span><br><span class="line"><span class="language-javascript">                    &#125;</span></span><br><span class="line"><span class="language-javascript">                ]</span></span><br><span class="line"><span class="language-javascript">            &#125;)</span></span><br><span class="line"><span class="language-javascript">        &#125;,<span class="number">1000</span>)</span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="关闭防火墙："><a href="#关闭防火墙：" class="headerlink" title="关闭防火墙："></a>关闭防火墙：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
-
-<h4 id="关闭防护墙自启："><a href="#关闭防护墙自启：" class="headerlink" title="关闭防护墙自启："></a>关闭防护墙自启：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewall</span><br></pre></td></tr></table></figure>
-
-<h4 id="查询SELinux："><a href="#查询SELinux：" class="headerlink" title="查询SELinux："></a>查询SELinux：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sestatus</span><br></pre></td></tr></table></figure>
-
-<h4 id="关闭SELinux："><a href="#关闭SELinux：" class="headerlink" title="关闭SELinux："></a>关闭SELinux：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0</span><br></pre></td></tr></table></figure>
-
-<h2 id="注：防火墙和SELinux未关闭会导致Hadoop和Zookeeper等进行运行启动失败"><a href="#注：防火墙和SELinux未关闭会导致Hadoop和Zookeeper等进行运行启动失败" class="headerlink" title="注：防火墙和SELinux未关闭会导致Hadoop和Zookeeper等进行运行启动失败"></a><strong>注：防火墙和SELinux未关闭会导致Hadoop和Zookeeper等进行运行启动失败</strong></h2><h3 id="更改主机名："><a href="#更改主机名：" class="headerlink" title="更改主机名："></a>更改主机名：</h3><p>主机一：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname master</span><br><span class="line">bash</span><br></pre></td></tr></table></figure>
-
-<p>主机二：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname slave1</span><br><span class="line">bash</span><br></pre></td></tr></table></figure>
-
-<p>主机三：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname slave2</span><br><span class="line">bash</span><br></pre></td></tr></table></figure>
-
-<h4 id="分别对三台Linux编辑："><a href="#分别对三台Linux编辑：" class="headerlink" title="分别对三台Linux编辑："></a>分别对三台Linux编辑：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
-
-<p>末尾处添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.0.2 master</span><br><span class="line">192.168.0.3 slave1</span><br><span class="line">192.168.0.4 slave2</span><br></pre></td></tr></table></figure>
-
-<p>尝试ping：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ping master</span><br><span class="line">ping slave1</span><br><span class="line">ping slave2</span><br></pre></td></tr></table></figure>
-
-<h4 id="添加完毕做免密登录："><a href="#添加完毕做免密登录：" class="headerlink" title="添加完毕做免密登录："></a>添加完毕做免密登录：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -P &#x27;&#x27;    #生成密钥</span><br><span class="line">ssh-copy-id master      #将密码分布拷贝给master，slave1，slave2</span><br><span class="line">ssh-copy-id slave1</span><br><span class="line">ssh-copy-id slave2</span><br></pre></td></tr></table></figure>
-
-<p>尝试登录验证是否成功：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ssh master</span><br><span class="line">exit			#退出登录</span><br><span class="line">ssh slave1</span><br><span class="line">exit</span><br><span class="line">ssh slave2</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
-
-<h4 id="到root用户下进行解压jdk压缩包"><a href="#到root用户下进行解压jdk压缩包" class="headerlink" title="到root用户下进行解压jdk压缩包:"></a>到root用户下进行解压jdk压缩包:</h4><h3 id="注：如下没说切换到哪个主机下默认都是master下哦！！！"><a href="#注：如下没说切换到哪个主机下默认都是master下哦！！！" class="headerlink" title="注：如下没说切换到哪个主机下默认都是master下哦！！！"></a><em>注：如下没说切换到哪个主机下默认都是master下哦！！！</em></h3><p>这边解压到**/usr/local/src**目录下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf /root/jdk-8u162-linux-x64.tar.gz -C /usr/local/src/</span><br><span class="line">mv /usr/local/src/jdk1.8.0_162/ /usr/local/src/jdk #对文件夹进行改名</span><br><span class="line">vi /etc/profile   #配置环境变量</span><br></pre></td></tr></table></figure>
-
-<p>在末尾处添加:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/src/jdk</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure>
-
-<p>执行文件:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">java -version			#检查环境是否配置成功</span><br></pre></td></tr></table></figure>
-
-<p>把**/usr/local/src/jdk**分发给slave1和slave2：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scp -r /usr/local/src/jdk/ slave1:/usr/local/src/</span><br><span class="line">scp -r /usr/local/src/jdk/ slave2:/usr/local/src/</span><br><span class="line">scp /etc/profile slave1:/etc/   			#并把配置分发给他们</span><br><span class="line">scp /etc/profile slave2:/etc/</span><br></pre></td></tr></table></figure>
-
-<p>切换到slave1：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">java -version</span><br></pre></td></tr></table></figure>
-
-<p>切换到slave2：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">java -version</span><br></pre></td></tr></table></figure>
-
-<p><em><strong>接下去进入正题了哦！！！</strong></em></p>
-<h4 id="到root目录下解压Hadoop的压缩包："><a href="#到root目录下解压Hadoop的压缩包：" class="headerlink" title="到root目录下解压Hadoop的压缩包："></a>到root目录下解压Hadoop的压缩包：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf /root/hadoop-2.7.7.tar.gz -C /usr/local/src/</span><br><span class="line">mv /usr/local/src/hadoop-2.7.7/ /usr/local/src/hadoop		#对文件夹进行改名</span><br><span class="line">vi /etc/profile				#配置环境</span><br></pre></td></tr></table></figure>
-
-<p>在末尾处添加:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export HADOOP_HOME=/usr/local/src/hadoop</span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</span><br></pre></td></tr></table></figure>
-
-<p>执行环境变量:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">hadoop verison				#检查环境变量是否配置成功，查看Hadoop版本号</span><br></pre></td></tr></table></figure>
-
-<p>切换到Hadoop的<strong>etc/hadoop</strong>目录下进行配置:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/hadoop/etc/hadoop/</span><br><span class="line">vi hadoop-env.sh 				#编辑hadoop-env.sh这个文件</span><br></pre></td></tr></table></figure>
-
-<p>修改该文件下的:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/src/jdk</span><br></pre></td></tr></table></figure>
-
-<p>打开core-site.xml文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi core-site.xml </span><br></pre></td></tr></table></figure>
-
-<p>在<configuration></configuration>中间添加:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">&lt;value&gt;/usr/local/src/hadoop/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">&lt;value&gt;hdfs://master:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
-
-<p>打开hdfs-site.xml 文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi hdfs-site.xml </span><br></pre></td></tr></table></figure>
-
-<p>在<configuration></configuration>中间添加:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;</span><br><span class="line">&lt;value&gt;/usr/local/src/hadoop/name&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;</span><br><span class="line">&lt;value&gt;/usr/local/src/hadoop/data&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">&lt;value&gt;3&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;</span><br><span class="line">&lt;value&gt;master:50090&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
-
-<p>打开yarn-site.xml文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi yarn-site.xml </span><br></pre></td></tr></table></figure>
-
-<p>在<configuration></configuration>中间添加:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">&lt;value&gt;master&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
-
-<p>复制一份<strong>mapred-site.xml.template</strong>并且改名为<strong>mapred-site.xml</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp mapred-site.xml.template mapred-site.xml</span><br></pre></td></tr></table></figure>
-
-<p>打开mapred-site.xml文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi mapred-site.xml</span><br></pre></td></tr></table></figure>
-
-<p>在<configuration></configuration>中间添加:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">&lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
-
-<p>打开slaves文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi slaves</span><br></pre></td></tr></table></figure>
-
-<p>删除全部添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">slave1</span><br><span class="line">slave2</span><br></pre></td></tr></table></figure>
-
-<p>从master的Hadoop分发给slave1,slave2</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scp -r /usr/local/src/hadoop/ slave1:/usr/local/src/</span><br><span class="line">scp -r /usr/local/src/hadoop/ slave2:/usr/local/src/</span><br><span class="line">scp /etc/profile slave1:/etc/   			#并把配置分发给他们</span><br><span class="line">scp /etc/profile slave2:/etc/</span><br></pre></td></tr></table></figure>
-
-<p>切换到slave1：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-
-<p>切换到slave2：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-
-<h3 id="恭喜你快完成搭建了-≧▽≦"><a href="#恭喜你快完成搭建了-≧▽≦" class="headerlink" title="恭喜你快完成搭建了**(≧▽≦)**"></a>恭喜你快完成搭建了**(≧▽≦)**</h3><p>接下来到初始化Hadoop了：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop namenode -format</span><br></pre></td></tr></table></figure>
-
-<p>如看到：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">22/10/15 22:18:18 INFO namenode.FSImage: Allocated new BlockPoolId: BP-1041528234-192.168.247.3-1665843498730</span><br><span class="line">22/10/15 22:18:18 INFO common.Storage: Storage directory /usr/local/src/hadoop/name has been successfully formatted.</span><br><span class="line">22/10/15 22:18:18 INFO namenode.FSImageFormatProtobuf: Saving image file /usr/local/src/hadoop/name/current/fsimage.ckpt_0000000000000000000 using no compression</span><br><span class="line">22/10/15 22:18:18 INFO namenode.FSImageFormatProtobuf: Image file /usr/local/src/hadoop/name/current/fsimage.ckpt_0000000000000000000 of size 321 bytes saved in 0 seconds.</span><br><span class="line">22/10/15 22:18:18 INFO namenode.NNStorageRetentionManager: Going to retain 1 images with txid &gt;= 0</span><br><span class="line">22/10/15 22:18:18 INFO util.ExitUtil: Exiting with status 0</span><br><span class="line">22/10/15 22:18:18 INFO namenode.NameNode: SHUTDOWN_MSG: </span><br><span class="line">/************************************************************</span><br><span class="line">SHUTDOWN_MSG: Shutting down NameNode at master/192.168.247.3</span><br><span class="line">************************************************************/</span><br></pre></td></tr></table></figure>
-
-<p>证明初始化成功！！！</p>
-<p>则我们可以去启动集群了：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-all.sh </span><br></pre></td></tr></table></figure>
-
-<p>分别在三台Linux下输入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jps			#查看进程</span><br></pre></td></tr></table></figure>
-
-<p>在master下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">17314 Jps</span><br><span class="line">16892 SecondaryNameNode</span><br><span class="line">17052 ResourceManager</span><br><span class="line">16702 NameNode</span><br></pre></td></tr></table></figure>
-
-<p>在slave1下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2051 Jps</span><br><span class="line">1848 DataNode</span><br><span class="line">1946 NodeManager</span><br></pre></td></tr></table></figure>
-
-<p>在slave2下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1844 DataNode</span><br><span class="line">1942 NodeManager</span><br><span class="line">2046 Jps</span><br></pre></td></tr></table></figure>
-
-<h3 id="则证明启动成功！！！离成功又更。。。进了一步了"><a href="#则证明启动成功！！！离成功又更。。。进了一步了" class="headerlink" title="则证明启动成功！！！离成功又更。。。进了一步了"></a>则证明启动成功！！！离成功又更。。。进了一步了</h3><p>可以到游览器下访问<a href="http://192.168.0.2:50070就可以访问到了">http://192.168.0.2:50070就可以访问到了</a></p>
-<p>yarn的地址则是：<a target="_blank" rel="noopener" href="http://192.168.0.2:8088/">http://192.168.0.2:8088</a></p>
-<h4 id="接下去对Hadoop进行测试使用"><a href="#接下去对Hadoop进行测试使用" class="headerlink" title="接下去对Hadoop进行测试使用:"></a>接下去对Hadoop进行测试使用:</h4><p>在Hadoop平台上创建文件夹:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -mkdir /in			#这里我创建的文件夹名是in</span><br><span class="line">cd /root						#切换到root目录下</span><br><span class="line">vi test.txt						#编辑test.txt文件</span><br></pre></td></tr></table></figure>
-
-<p>随便输入点单词:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello xz</span><br><span class="line">lucky xz</span><br></pre></td></tr></table></figure>
-
-<p>将文件上传到我们刚刚<strong>hadoop</strong>平台上新建<strong>in</strong>的文件夹下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -put /root/test.txt /in</span><br></pre></td></tr></table></figure>
-
-<p>切换到Hadoop的计算单词的程序下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/hadoop/share/hadoop/mapreduce/</span><br></pre></td></tr></table></figure>
-
-<p>对刚刚传上去的文件进行计算:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop jar hadoop-mapreduce-examples-2.7.7.jar wordcount /in/test.txt /out	#out是输出的在这个目录下</span><br></pre></td></tr></table></figure>
-
-<p>接下去就是开始计算单词啦~~~~</p>
-<p>等待计算完成</p>
-<p>查看Hadoop平台上的out目录下的文件:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -ls /out</span><br></pre></td></tr></table></figure>
-
-<p>此时此刻我们发现了/out/part-r-00000,使用cat命令赶紧查看一下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -cat /out/part-*      	#这里是使用正则表达式的去匹配</span><br></pre></td></tr></table></figure>
-
-<p>输出了单词数:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hello	1</span><br><span class="line">lucky	1</span><br><span class="line">xz	2</span><br></pre></td></tr></table></figure>
-
-<p>恭喜你学会搭建Hadoop全分布啦！！！</p>
-<p>没错就是这么简单！！！</p>
-<p>继续努力！！！</p>
-<p>◉‿◉</p>
-<p>​                                                                                                                                        ——周毅盛</p>
-<p>​                                                                                                                                        2022/10/15</p>
-<h1 id="接下去是报错总结啦！！！"><a href="#接下去是报错总结啦！！！" class="headerlink" title="接下去是报错总结啦！！！"></a>接下去是报错总结啦！！！</h1><h3 id="如果遇到存储空间全是0b的话那就是初始化的有问题了或者是偶尔有节点然后过一会又掉节点的话多半是初始化的id进行冲突了"><a href="#如果遇到存储空间全是0b的话那就是初始化的有问题了或者是偶尔有节点然后过一会又掉节点的话多半是初始化的id进行冲突了" class="headerlink" title="如果遇到存储空间全是0b的话那就是初始化的有问题了或者是偶尔有节点然后过一会又掉节点的话多半是初始化的id进行冲突了"></a>如果遇到存储空间全是0b的话那就是初始化的有问题了或者是偶尔有节点然后过一会又掉节点的话多半是初始化的id进行冲突了</h3><p>这里我们可以到各个节点下去删除对应的 logs,tmp,data,name</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /usr/local/src/hadoop/logs</span><br><span class="line">rm -rf /usr/local/src/hadoop/tmp</span><br><span class="line">rm -rf /usr/local/src/hadoop/data</span><br><span class="line">rm -rf /usr/local/src/hadoop/name</span><br></pre></td></tr></table></figure>
-
-<p>记住三台都要删的哦！！！</p>
-<p>然后进行重新初始化就好了！！！</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop namenode -format</span><br></pre></td></tr></table></figure>
-
-<p>如果遇到少节点了请去查看配置是否有漏打或者打错的哦！！！</p>
-<p>在这里我在提一句记得关闭防火墙！！！</p>
-<p>​                                记得关闭防火墙！！！</p>
-<p>​                                记得关闭防火墙！！！</p>
-
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果:"></a>效果:</h2><script src="https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"></script>
+<style>
+        #myBar{
+            height: 600px;
+            width: 400px;
+        }
+ </style>
+<div id="myBar"></div>
+<script>
+        let mychar=echarts.init(document.getElementById('myBar'));
+        let option={
+            title:{
+                text:'数据是随机生成的，不做任何参考作用'
+            },
+            xAxis:{
+                type:'value'
+            },
+            yAxis:{
+                type:'category',
+                data:['淘宝','京东','拼多多','抖音','其他'],
+                inverse: true           //顺序自上往下
+            },
+            series:[
+                {
+                    type:'bar',
+                    name:'双十一',
+                    data:[],
+                    realtimeSort:true,   //开启排序功能
+                    label:{
+                        show:true,
+                        position:'right',
+                        valueAnimation:true
+                    },
+                    animationDuration: 0,       //设置默认数据动画的时长
+                    animationDurationUpdate: 1000,      //设置数据更新动画的时长
+                    animationEasing: 'linear',      //设置默认缓动效果
+                    animationEasingUpdate: 'linear',     //设置更新缓动效果
+                    itemStyle:{         //这个是设置图形样式
+                        normal:{    //单词翻译正常的
+                            color:
+                            function(){    //设置颜色这边我们可以写个函数然后给返回值
+                                return 'rgb('+Math.round(Math.random()*255)+','+
+                                +Math.round(Math.random()*255)+','
+                                +Math.round(Math.random()*255)+")";
+                            }
+                        }
+                 }
+                }
+            ]
+        };
+        for (let i=0;i < option.yAxis.data.length;i++){
+            option.series[0].data.push(
+                Math.round((Math.random()+1)*1000)
+            )
+            // console.log(1);
+        }
+        mychar.setOption(option);
+        setInterval(()=>{
+            for (let i=0;i<option.series[0].data.length;++i){
+                if (Math.random()>0.9){     //判断是否大于随机数0.9
+                    option.series[0].data[i]+=Math.round(Math.random()*2000)  //变换较大
+                }else{
+                    option.series[0].data[i]+=Math.round(Math.random()*200)   //变化较小
+                }
+            }
+            mychar.setOption({
+                series:[
+                    {
+                        type:'bar',
+                        data:option.series[0].data      //option是可以重复复用的，当设置一次如果不刷新其他属性可以直接复用填入数据
+                    }
+                ]
+            })
+        },1000)
+</script>
                 
             </div>
             <hr/>
@@ -593,7 +492,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/10/15/Hadoop%E5%85%A8%E5%88%86%E5%B8%83/">http://example.com/2022/10/15/Hadoop%E5%85%A8%E5%88%86%E5%B8%83/</a>
+                    <a href="http://example.com/2022/11/13/%E6%A8%AA%E5%90%91%E6%9F%B1%E7%8A%B6%E5%9B%BE/">http://example.com/2022/11/13/%E6%A8%AA%E5%90%91%E6%9F%B1%E7%8A%B6%E5%9B%BE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -631,16 +530,20 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hadoop/">
-                                    <span class="chip bg-color">Hadoop</span>
+                                <a href="/tags/Echarts/">
+                                    <span class="chip bg-color">Echarts</span>
                                 </a>
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/HTML/">
+                                    <span class="chip bg-color">HTML</span>
                                 </a>
                             
-                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                                    <span class="chip bg-color">大数据</span>
+                                <a href="/tags/CSS/">
+                                    <span class="chip bg-color">CSS</span>
+                                </a>
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
                                 </a>
                             
                         </div>
@@ -719,74 +622,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/10/15/Zookeeper%E9%85%8D%E7%BD%AE/">
+                <a href="/2022/11/13/%E6%A8%AA%E5%90%91%E6%9F%B1%E7%8A%B6%E5%9B%BE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Zookeeper安装">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="横向柱状图">
                         
-                        <span class="card-title">Zookeeper安装</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Zookeeper/" class="post-category">
-                                    Zookeeper
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                        <span class="chip bg-color">大数据</span>
-                    </a>
-                    
-                    <a href="/tags/Zookeeper/">
-                        <span class="chip bg-color">Zookeeper</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/10/15/Hadoop%E5%85%A8%E5%88%86%E5%B8%83/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hadoop全分布安装">
-                        
-                        <span class="card-title">Hadoop全分布安装</span>
+                        <span class="card-title">横向柱状图</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -797,14 +644,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hadoop/" class="post-category">
-                                    Hadoop
+                            <a href="/categories/Echarts/" class="post-category">
+                                    Echarts
                                 </a>
                             
                             
@@ -815,16 +662,81 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hadoop/">
-                        <span class="chip bg-color">Hadoop</span>
+                    <a href="/tags/Echarts/">
+                        <span class="chip bg-color">Echarts</span>
                     </a>
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/HTML/">
+                        <span class="chip bg-color">HTML</span>
                     </a>
                     
-                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                        <span class="chip bg-color">大数据</span>
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/11/12/%E6%8A%98%E7%BA%BF%E5%9B%BE%E5%B9%B3%E6%BB%91/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="平滑折线图">
+                        
+                        <span class="card-title">平滑折线图</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Echarts/" class="post-category">
+                                    Echarts
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Echarts/">
+                        <span class="chip bg-color">Echarts</span>
+                    </a>
+                    
+                    <a href="/tags/HTML/">
+                        <span class="chip bg-color">HTML</span>
+                    </a>
+                    
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>
