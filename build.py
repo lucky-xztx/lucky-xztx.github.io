@@ -10,6 +10,7 @@ import os
 import re
 import json
 import zlib
+import time
 import html as html_mod
 import urllib.parse
 from datetime import date
@@ -17,6 +18,7 @@ from datetime import date
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 CACHE_FILE = "_site_data.json"
+ASSET_VER = str(int(time.time()))  # 静态资源版本号，构建时更新以强刷缓存
 
 SITE_NAME = "小周博客"
 SITE_DESC = "正青春！"
@@ -186,7 +188,7 @@ BASE = """<!DOCTYPE html>
 <title>{{TITLE}} · {{SITE_NAME}}</title>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="stylesheet" href="/libs/awesome/css/all.min.css">
-<link rel="stylesheet" href="/css/glass.css">
+<link rel="stylesheet" href="/css/glass.css?v={{ASSET_VER}}">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -258,7 +260,7 @@ BASE = """<!DOCTYPE html>
 
 <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/app.js"></script>
+<script src="/js/app.js?v={{ASSET_VER}}"></script>
 </body>
 </html>
 """
@@ -281,7 +283,8 @@ def render_base(title, desc, body, active=""):
            .replace("{{YEAR}}", str(date.today().year))
            .replace("{{NAV_LINKS}}", "\n            ".join(nav_links))
            .replace("{{MOBILE_LINKS}}", "\n        ".join(mobile_links))
-           .replace("{{BODY}}", body))
+           .replace("{{BODY}}", body)
+           .replace("{{ASSET_VER}}", ASSET_VER))
     return out
 
 

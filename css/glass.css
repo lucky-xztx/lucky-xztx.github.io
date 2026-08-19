@@ -740,6 +740,10 @@ body.dark { --note-bg: rgba(32, 32, 48, .66); }
     align-items: start;
     padding-bottom: 44px;
 }
+/* 中等宽度：正文列收窄一点，目录仍保持右侧 */
+@media only screen and (min-width: 950px) and (max-width: 1160px) {
+    .post-layout { grid-template-columns: minmax(0, 1fr) 220px; gap: 24px; }
+}
 
 .post-body {
     padding: clamp(28px, 5vw, 54px);
@@ -1110,7 +1114,7 @@ body.dark { --note-bg: rgba(32, 32, 48, .66); }
 }
 .toc-drawer-mask.open { opacity: 1; pointer-events: auto; }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 949.98px) {
     .toc-fab { display: grid; place-items: center; }
 }
 
@@ -1737,7 +1741,7 @@ body.dark .legacy .skill-bar-percent { text-shadow: 0 0 6px rgba(0, 0, 0, .6); }
 }
 
 /* ---------- 22. 响应式 ---------- */
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 949.98px) {
     .post-layout { grid-template-columns: minmax(0, 760px); }
     .post-toc { display: none; }
     .cat-grid { grid-template-columns: repeat(2, 1fr); }
