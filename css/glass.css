@@ -1266,6 +1266,149 @@ body.dark .post-hero::before {
 .list-hero h1 { margin: 0 0 6px; font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 900; }
 .list-hero p { margin: 0; color: var(--text-sub); font-weight: 600; }
 
+/* ---------- 18.5 关于页 ---------- */
+.about-profile {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 46px 28px 34px;
+    text-align: center;
+}
+.about-avatar-ring {
+    width: 148px; height: 148px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    padding: 4px;
+    background: conic-gradient(#0a84ff, #5e5ce6, #bf5af2, #ff2d92, #ff9f0a, #0a84ff);
+    animation: ring-spin 9s linear infinite;
+}
+.about-avatar-ring img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 4px solid rgba(255, 255, 255, .85);
+    box-shadow: 0 16px 40px rgba(94, 92, 230, .35);
+}
+body.dark .about-avatar-ring img { border-color: rgba(255, 255, 255, .18); }
+@keyframes ring-spin { to { transform: rotate(360deg); } }
+
+.about-name { font-size: 1.9rem; font-weight: 900; letter-spacing: .04em; }
+.about-career {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 10px 0 4px;
+    padding: 5px 18px;
+    border-radius: 999px;
+    background: var(--grad-soft);
+    border: 1px solid var(--glass-border);
+    color: var(--text-sub);
+    font-weight: 700;
+    font-size: .88rem;
+}
+.about-bio {
+    color: var(--text-sub);
+    line-height: 2;
+    margin: 14px auto 20px;
+    max-width: 480px;
+}
+.about-social { display: flex; justify-content: center; gap: 14px; }
+.about-social a {
+    display: grid;
+    place-items: center;
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-sub);
+    font-size: 1.1rem;
+    transition: all .3s var(--ease-spring);
+}
+.about-social a:hover {
+    background: var(--grad);
+    color: #fff;
+    transform: translateY(-4px) rotate(8deg);
+    box-shadow: 0 12px 26px rgba(94, 92, 230, .4);
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+}
+.stat-card { padding: 20px 12px 16px; }
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 22px;
+    align-items: start;
+    margin-top: 22px;
+}
+.about-panel { padding: 26px 30px; }
+.panel-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+.panel-title i { color: var(--accent-2); }
+
+.skill { margin: 15px 0; }
+.skill-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: .9rem;
+    margin-bottom: 7px;
+}
+.skill-num { color: var(--accent); font-weight: 800; font-size: .84rem; }
+.skill-track {
+    height: 10px;
+    border-radius: 999px;
+    background: var(--glass-bg-soft);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+}
+.skill-fill {
+    height: 100%;
+    width: 0;
+    border-radius: 999px;
+    background: var(--grad);
+    box-shadow: 0 2px 10px rgba(94, 92, 230, .4);
+    transition: width 1.3s var(--ease-spring) .25s;
+}
+.skill:nth-of-type(6n+2) .skill-fill { background: linear-gradient(90deg, #bf5af2, #ff2d92); box-shadow: 0 2px 10px rgba(191, 90, 242, .4); }
+.skill:nth-of-type(6n+3) .skill-fill { background: linear-gradient(90deg, #0a84ff, #64d2ff); box-shadow: 0 2px 10px rgba(10, 132, 255, .4); }
+.skill:nth-of-type(6n+4) .skill-fill { background: linear-gradient(90deg, #ff2d92, #ff9f0a); box-shadow: 0 2px 10px rgba(255, 45, 146, .4); }
+.skill:nth-of-type(6n+5) .skill-fill { background: linear-gradient(90deg, #30d158, #64d2ff); box-shadow: 0 2px 10px rgba(48, 209, 88, .35); }
+.skill:nth-of-type(6n+6) .skill-fill { background: linear-gradient(90deg, #5e5ce6, #bf5af2); box-shadow: 0 2px 10px rgba(94, 92, 230, .4); }
+/* 浮现触发后展开；无 JS 环境直接显示 */
+.reveal.in .skill-fill, html:not(.js) .skill-fill { width: var(--w); }
+
+.chip-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+.about-meta { display: flex; flex-direction: column; gap: 4px; }
+.meta-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 4px;
+    border-bottom: 1px dashed var(--glass-border);
+    font-size: .9rem;
+}
+.meta-row span { color: var(--text-faint); }
+.meta-row b { color: var(--text-sub); font-weight: 700; text-align: right; }
+
+@media only screen and (max-width: 768px) {
+    .about-stats { grid-template-columns: repeat(2, 1fr); }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-panel { padding: 22px 20px; }
+}
+
 /* ---------- 19. 滚动浮现动画（.js 由头部脚本添加，无 JS 时保持可见） ---------- */
 html:not(.js) .reveal { opacity: 1; transform: none; }
 .js .reveal { opacity: 0; transform: translateY(30px) scale(.985); transition: all .7s var(--ease-spring); }

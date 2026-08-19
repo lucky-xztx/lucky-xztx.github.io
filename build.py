@@ -535,6 +535,70 @@ def build_archives(posts, rel_out, title, active="archives/"):
           render_base("归档", "文章归档", body, active=active))
 
 
+def build_about(posts, all_tags, all_cats, run_days):
+    """全新关于页：个人名片 + 数据统计 + 技能条 + 技能标签"""
+    skills = [("Java", 55), ("JavaScript", 60), ("HTML5", 80),
+              ("CSS", 60), ("SQL", 70), ("Python", 75)]
+    skill_bars = "".join(f"""<div class="skill">
+    <div class="skill-head"><span>{name}</span><span class="skill-num">{val}%</span></div>
+    <div class="skill-track"><div class="skill-fill" style="--w:{val}%"></div></div>
+</div>""" for name, val in skills)
+
+    chip_cloud = "".join(
+        '<a class="chip" href="/tags/%s/"># %s</a>' % (urllib.parse.quote(t), esc(t))
+        for t in ["Hadoop", "Linux", "大数据", "Mysql", "Redis", "Spark",
+                  "Zookeeper", "Flink", "Flume", "SQOOP", "Echarts", "HTML", "JS"])
+
+    body = f"""
+<div class="list-hero">
+    <span class="lh-icon"><i class="fas fa-user-astronaut"></i></span>
+    <h1>关于我</h1>
+    <p>一个爱折腾的学生开发者</p>
+</div>
+
+<section class="section container">
+    <div class="about-profile glass reveal">
+        <div class="about-avatar-ring"><img src="/medias/avatar.jpg" alt="小周"></div>
+        <div class="about-name">小周</div>
+        <div class="about-career"><i class="fas fa-graduation-cap"></i> Student</div>
+        <p class="about-bio">路还在继续，梦还在期许。天高云远，至少看得见。<br>努力与幸运成正比！</p>
+        <div class="about-social">
+            <a href="{GITHUB}" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:2074553018@qq.com" title="邮件联系我"><i class="fas fa-envelope-open"></i></a>
+            <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2074553018" title="QQ: 2074553018"><i class="fab fa-qq"></i></a>
+        </div>
+    </div>
+
+    <div class="about-stats">
+        <div class="stat-card glass reveal"><div class="stat"><div class="num" data-count="{len(posts)}">0</div><div class="label">文章</div></div></div>
+        <div class="stat-card glass reveal" data-delay="1"><div class="stat"><div class="num" data-count="{len(all_cats)}">0</div><div class="label">分类</div></div></div>
+        <div class="stat-card glass reveal" data-delay="2"><div class="stat"><div class="num" data-count="{len(all_tags)}">0</div><div class="label">标签</div></div></div>
+        <div class="stat-card glass reveal" data-delay="3"><div class="stat"><div class="num" data-count="{run_days}">0</div><div class="label">天陪伴</div></div></div>
+    </div>
+
+    <div class="about-grid">
+        <div class="about-panel glass reveal">
+            <div class="panel-title"><i class="fas fa-wrench"></i> 我的技能</div>
+            {skill_bars}
+        </div>
+        <div class="about-panel glass reveal" data-delay="1">
+            <div class="panel-title"><i class="fas fa-book"></i> 技能标签</div>
+            <div class="chip-cloud">{chip_cloud}</div>
+            <div class="panel-title" style="margin-top:26px"><i class="fas fa-circle-info"></i> 关于本站</div>
+            <div class="about-meta">
+                <div class="meta-row"><span>建站时间</span><b>2022 年 10 月</b></div>
+                <div class="meta-row"><span>内容来源</span><b>Hexo 文章数据</b></div>
+                <div class="meta-row"><span>界面主题</span><b>Glass UI · 毛玻璃设计</b></div>
+                <div class="meta-row"><span>座右铭</span><b>正青春！</b></div>
+            </div>
+        </div>
+    </div>
+</section>
+"""
+    write("about/index.html",
+          render_base("关于我", "关于小周 - 学生开发者", body, active="about/"))
+
+
 def build_404():
     body = f"""
 <div class="nf-wrap">
@@ -646,7 +710,8 @@ def main():
         if page_dir.isdigit():
             build_pagination(posts, int(page_dir))
 
-    # 6. 关于 / 友链 / 联系（旧内容 + 新壳，内容来自缓存）
+    # 6. 关于页（全新模板）/ 友链 / 联系（旧内容 + 新壳，内容来自缓存）
+    build_about(posts, all_tags, all_cats, run_days)
     write_legacy = lambda rel_out, title, active, inner: write(
         os.path.join(rel_out, "index.html"),
         render_base(title, title + " - " + SITE_NAME, """
@@ -657,7 +722,6 @@ def main():
     <div class="legacy glass reveal">%s</div>
 </section>
 """ % (esc(title), inner), active=active))
-    write_legacy("about", "关于我", "about/", legacy["about"])
     write_legacy("friends", "友情链接", "friends/", legacy["friends"])
     write_legacy("contact", "联系我", "", legacy["contact"])
 
