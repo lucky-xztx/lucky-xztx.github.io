@@ -156,6 +156,16 @@
         <a class="glass" href="/2022/10/15/flume%E9%85%8D%E7%BD%AE/"><span class="nav-label"><i class="fas fa-angle-left"></i> 上一篇</span><span class="nav-title">Flume安装</span></a>
         <a class="glass next" href="/2022/10/16/Ha%E9%85%8D%E7%BD%AE/"><span class="nav-label">下一篇 <i class="fas fa-angle-right"></i></span><span class="nav-title">Hadoop高性能安装</span></a>
     </nav>
+    
+<button class="toc-fab" id="tocFab" type="button" title="目录"><i class="fas fa-list-ul"></i></button>
+<div class="toc-drawer" id="tocDrawer">
+    <div class="toc-drawer-head">
+        <span><i class="fas fa-list-ul"></i> 目录</span>
+        <button class="toc-drawer-close" id="tocDrawerClose" type="button"><i class="fas fa-xmark"></i></button>
+    </div>
+    <ol class="toc-list"><li class=""><a href="#Flink%E9%85%8D%E7%BD%AE">Flink配置</a></li><li class="toc-h2"><a href="#%E5%AE%9E%E9%AA%8C%E5%89%8D%E5%87%86%E5%A4%87%EF%BC%9A">实验前准备：</a></li><li class="toc-h3"><a href="#%E4%BE%9D%E6%97%A7%E6%9D%A5%E5%88%B0root%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%BE%E5%88%B0flink%E5%8E%8B%E7%BC%A9%E5%8C%85%E8%BF%9B%E8%A1%8C%E8%A7%A3%E5%8E%8B">依旧来到root目录下找到flink压缩包进行解压:</a></li><li class="toc-h3"><a href="#%E5%9C%A8%E6%9C%AB%E5%B0%BE%E5%A4%84%E6%B7%BB%E5%8A%A0">在末尾处添加:</a></li><li class="toc-h3"><a href="#%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%A9%E5%85%B6%E7%94%9F%E6%95%88">执行环境变量让其生效:</a></li><li class="toc-h3"><a href="#%E8%BF%9B%E5%85%A5%E5%88%B0flink%E7%9A%84conf%E9%85%8D%E7%BD%AE%E4%B8%8B">进入到flink的conf配置下:</a></li><li class="toc-h3"><a href="#%E6%89%93%E5%BC%80flink-conf-yaml%E6%96%87%E4%BB%B6">打开flink-conf.yaml文件</a></li><li class="toc-h3"><a href="#%E4%BF%AE%E6%94%B9">修改</a></li><li class="toc-h3"><a href="#%E6%89%93%E5%BC%80slaves%E6%96%87%E4%BB%B6">打开slaves文件</a></li><li class="toc-h3"><a href="#%E5%88%A0%E9%99%A4%E5%85%A8%E9%83%A8%E6%B7%BB%E5%8A%A0%E5%A6%82%E4%B8%8B">删除全部添加如下</a></li><li class="toc-h3"><a href="#%E6%89%93%E5%BC%80masters%E6%96%87%E4%BB%B6">打开masters文件</a></li><li class="toc-h3"><a href="#%E4%BF%AE%E6%94%B9-1">修改:</a></li><li class="toc-h3"><a href="#%E5%A4%8D%E5%88%B6root%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84flink%E7%9A%84jar%E5%8C%85%E5%88%B0flink%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84lib">复制root目录下的flink的jar包到flink目录下的lib</a></li><li class="toc-h3"><a href="#%E6%8A%8Aflink%E6%96%87%E4%BB%B6%E5%88%86%E5%8F%91%E7%BB%99slave1-slave2">把flink文件分发给slave1,slave2:</a></li><li class="toc-h3"><a href="#%E5%88%87%E6%8D%A2slave1%EF%BC%9A">切换slave1：</a></li><li class="toc-h3"><a href="#%E5%88%87%E6%8D%A2slave2%EF%BC%9A">切换slave2：</a></li><li class="toc-h2"><a href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1">启动服务:</a></li><li class="toc-h3"><a href="#%E5%AF%B9%E9%BD%90%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%EF%BC%9A">对齐进行测试：</a></li><li class="toc-h3"><a href="#%E6%8E%A5%E4%B8%8B%E5%8E%BB%E9%85%8D%E7%BD%AE%E5%9C%A8yarn%E6%A8%A1%E5%BC%8F%E4%B8%8B%EF%BC%9A">接下去配置在yarn模式下：</a></li><li class="toc-h3"><a href="#%E5%9C%A8%E4%B8%AD%E9%97%B4%E6%B7%BB%E5%8A%A0">在中间添加:</a></li><li class="toc-h3"><a href="#%E6%8E%A5%E4%B8%8B%E5%8E%BB%E5%BC%80%E5%A7%8B%E8%B7%91%E5%9C%A8yarn%E6%A8%A1%E5%BC%8F%EF%BC%9A">接下去开始跑在yarn模式：</a></li></ol>
+</div>
+<div class="toc-drawer-mask" id="tocDrawerMask"></div>
 </article>
 
 </main>

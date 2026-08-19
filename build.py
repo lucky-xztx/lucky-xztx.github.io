@@ -377,13 +377,26 @@ def build_home(posts, all_tags, all_cats, run_days):
 
 def build_post_page(post, prev_post, next_post):
     toc_html = ""
+    toc_drawer = ""
     if post["toc"]:
         items = []
         for t in post["toc"]:
             cls = "toc-h2" if t["level"] == 2 else ("toc-h3" if t["level"] == 3 else "")
             hid = urllib.parse.quote(t["id"])
             items.append('<li class="%s"><a href="#%s">%s</a></li>' % (cls, hid, esc(t["text"])))
-        toc_html = '<aside class="post-toc glass"><div class="toc-title"><i class="fas fa-list-ul"></i> 目录</div><ol class="toc-list">%s</ol></aside>' % "".join(items)
+        toc_html = ('<aside class="post-toc glass"><div class="toc-title"><i class="fas fa-list-ul"></i> 目录</div>'
+                    '<ol class="toc-list">%s</ol></aside>') % "".join(items)
+        # 窄屏：右下角浮动按钮 + 右侧滑出抽屉（目录永远在右边）
+        toc_drawer = ("""
+<button class="toc-fab" id="tocFab" type="button" title="目录"><i class="fas fa-list-ul"></i></button>
+<div class="toc-drawer" id="tocDrawer">
+    <div class="toc-drawer-head">
+        <span><i class="fas fa-list-ul"></i> 目录</span>
+        <button class="toc-drawer-close" id="tocDrawerClose" type="button"><i class="fas fa-xmark"></i></button>
+    </div>
+    <ol class="toc-list">%s</ol>
+</div>
+<div class="toc-drawer-mask" id="tocDrawerMask"></div>""") % "".join(items)
 
     tag_chips = "".join('<a href="/tags/%s/"><span class="chip"># %s</span></a>'
                         % (urllib.parse.quote(t), esc(t)) for t in post["tags"])
@@ -430,6 +443,7 @@ def build_post_page(post, prev_post, next_post):
         {prev_html}
         {next_html}
     </nav>
+    {toc_drawer}
 </article>
 """
     # url 是编码后的链接地址，写文件时要还原成真实目录名

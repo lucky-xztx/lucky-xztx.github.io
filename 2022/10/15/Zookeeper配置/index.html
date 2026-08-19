@@ -152,6 +152,16 @@
         <div></div>
         <a class="glass next" href="/2022/10/15/Spark%E9%85%8D%E7%BD%AE/"><span class="nav-label">下一篇 <i class="fas fa-angle-right"></i></span><span class="nav-title">Spark安装</span></a>
     </nav>
+    
+<button class="toc-fab" id="tocFab" type="button" title="目录"><i class="fas fa-list-ul"></i></button>
+<div class="toc-drawer" id="tocDrawer">
+    <div class="toc-drawer-head">
+        <span><i class="fas fa-list-ul"></i> 目录</span>
+        <button class="toc-drawer-close" id="tocDrawerClose" type="button"><i class="fas fa-xmark"></i></button>
+    </div>
+    <ol class="toc-list"><li class=""><a href="#Zookeeper%E9%85%8D%E7%BD%AE">Zookeeper配置</a></li><li class="toc-h2"><a href="#%E5%AE%9E%E9%AA%8C%E5%89%8D%E5%87%86%E5%A4%87%EF%BC%9A">实验前准备：</a></li><li class="toc-h3"><a href="#%E5%88%B0root%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%BE%E5%88%B0zookeeper%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%8C%85%E8%BF%9B%E8%A1%8C%E8%A7%A3%E5%8E%8B%EF%BC%9A">到root目录下找到zookeeper的压缩包进行解压：</a></li><li class="toc-h3"><a href="#%E5%9C%A8%E6%9C%AB%E5%B0%BE%E5%A4%84%E6%B7%BB%E5%8A%A0%EF%BC%9A">在末尾处添加：</a></li><li class="toc-h3"><a href="#%E6%89%A7%E8%A1%8C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">执行配置文件:</a></li><li class="toc-h3"><a href="#%E8%BF%9B%E5%85%A5%E5%88%B0zookeeper%E7%9A%84conf%E9%85%8D%E7%BD%AE%E4%B8%8B">进入到zookeeper的conf配置下:</a></li><li class="toc-h3"><a href="#%E5%A4%8D%E5%88%B6zoo-sample-cfg%E4%B8%80%E4%BB%BD%E5%B9%B6%E6%94%B9%E5%90%8D%E4%B8%BAzoo-cfg">复制zoo_sample.cfg一份并改名为zoo.cfg</a></li><li class="toc-h3"><a href="#%E6%89%93%E5%BC%80zoo-cfg">打开zoo.cfg</a></li><li class="toc-h3"><a href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E9%87%8C%E7%9A%84">修改文件里的:</a></li><li class="toc-h3"><a href="#%E5%9C%A8%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E6%B7%BB%E5%8A%A0">在文件末尾添加:</a></li><li class="toc-h3"><a href="#%E5%9C%A8zookeeper%E4%B8%8B%E5%88%9B%E5%BB%BAdata%E6%96%87%E4%BB%B6">在zookeeper下创建data文件</a></li><li class="toc-h3"><a href="#%E5%88%A9%E7%94%A8%E9%87%8D%E5%AE%9A%E5%90%91%E5%9C%A8%E5%88%9A%E5%88%9A%E5%BB%BA%E7%AB%8B%E7%9A%84data%E4%B8%8B%E5%86%99%E8%BF%9B1%E4%BF%9D%E5%AD%98%E5%9C%A8myid">利用重定向在刚刚建立的data下写进1保存在myid</a></li><li class="toc-h3"><a href="#%E5%B0%86zookeeper%E6%96%87%E4%BB%B6%E5%88%86%E5%8F%91%E7%BB%99slave1-slave2%EF%BC%9A">将zookeeper文件分发给slave1,slave2：</a></li><li class="toc-h3"><a href="#%E5%88%87%E6%8D%A2slave1">切换slave1:</a></li><li class="toc-h3"><a href="#%E5%88%87%E6%8D%A2slave2">切换slave2:</a></li><li class="toc-h3"><a href="#%E4%B8%89%E5%8F%B0%E8%BE%93%E5%85%A5%E5%90%AF%E5%8A%A8">三台输入启动:</a></li><li class="toc-h3"><a href="#%E6%81%AD%E5%96%9C%E4%BD%A0%E6%90%AD%E5%BB%BA%E5%8A%A8%E7%89%A9%E5%9B%AD%E7%AE%A1%E7%90%86%E5%99%A8%E6%88%90%E5%8A%9F%E4%BA%86%EF%BC%81%EF%BC%81%EF%BC%81">恭喜你搭建动物园管理器成功了！！！</a></li></ol>
+</div>
+<div class="toc-drawer-mask" id="tocDrawerMask"></div>
 </article>
 
 </main>

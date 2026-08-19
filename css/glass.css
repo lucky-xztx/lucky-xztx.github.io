@@ -929,6 +929,45 @@ body.dark { --note-bg: rgba(32, 32, 48, .66); }
 .code-copy-btn:hover { background: var(--grad); color: #fff; border-color: transparent; }
 .code-copy-btn.done { background: rgba(48, 209, 88, .25); color: #7ee787; }
 
+/* 代码语法高亮配色（Hexo highlight 类，深色底） */
+#articleContent figure.highlight .comment,
+#articleContent pre .comment { color: #7d8590; font-style: italic; }
+#articleContent figure.highlight .keyword,
+#articleContent figure.highlight .literal,
+#articleContent figure.highlight .tag,
+#articleContent pre .keyword,
+#articleContent pre .literal,
+#articleContent pre .tag { color: #ff7b72; }
+#articleContent figure.highlight .string,
+#articleContent figure.highlight .regexp,
+#articleContent pre .string,
+#articleContent pre .regexp { color: #a5d6ff; }
+#articleContent figure.highlight .number,
+#articleContent figure.highlight .attr,
+#articleContent figure.highlight .attribute,
+#articleContent figure.highlight .meta,
+#articleContent pre .number,
+#articleContent pre .attr,
+#articleContent pre .meta { color: #79c0ff; }
+#articleContent figure.highlight .name,
+#articleContent figure.highlight .property,
+#articleContent pre .name,
+#articleContent pre .property { color: #7ee787; }
+#articleContent figure.highlight .title,
+#articleContent figure.highlight .function,
+#articleContent figure.highlight .selector-id,
+#articleContent pre .title,
+#articleContent pre .function { color: #d2a8ff; }
+#articleContent figure.highlight .params,
+#articleContent figure.highlight .built_in,
+#articleContent figure.highlight .selector-tag,
+#articleContent pre .params,
+#articleContent pre .built_in { color: #ffa657; }
+#articleContent figure.highlight .symbol,
+#articleContent figure.highlight .bullet,
+#articleContent figure.highlight .link,
+#articleContent pre .symbol { color: #ffa657; }
+
 /* 文末「完」分隔 + 标签 */
 .post-end { margin-top: 44px; }
 .end-line {
@@ -995,6 +1034,85 @@ body.dark { --note-bg: rgba(32, 32, 48, .66); }
     box-shadow: 0 6px 16px rgba(94, 92, 230, .35);
 }
 .toc-list .toc-h3 a { padding-left: 26px; font-size: .78rem; }
+
+/* 窄屏浮动目录：右下角按钮 + 右侧滑出抽屉（仅 ≤1100px 显示） */
+.toc-fab {
+    display: none;
+    position: fixed;
+    right: 16px; bottom: 96px;
+    z-index: 95;
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg-strong);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    color: var(--text);
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: all .3s var(--ease-spring);
+}
+.toc-fab:hover {
+    background: var(--grad);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(94, 92, 230, .4);
+}
+
+.toc-drawer {
+    position: fixed;
+    top: 0; right: 0;
+    z-index: 400;
+    width: min(320px, 84vw);
+    height: 100dvh;
+    padding: 14px 10px;
+    background: var(--glass-bg-strong);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    backdrop-filter: blur(30px) saturate(180%);
+    border-left: 1px solid var(--glass-border);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, .25);
+    transform: translateX(106%);
+    transition: transform .35s var(--ease-spring);
+    overflow-y: auto;
+}
+.toc-drawer.open { transform: translateX(0); }
+.toc-drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 14px 14px;
+    font-weight: 800;
+    font-size: 1rem;
+}
+.toc-drawer-close {
+    display: grid;
+    place-items: center;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    background: transparent;
+    color: var(--text-sub);
+    cursor: pointer;
+    transition: all .25s ease;
+}
+.toc-drawer-close:hover { background: var(--grad); color: #fff; }
+.toc-drawer-mask {
+    position: fixed;
+    inset: 0;
+    z-index: 399;
+    background: rgba(12, 12, 26, .38);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+}
+.toc-drawer-mask.open { opacity: 1; pointer-events: auto; }
+
+@media only screen and (max-width: 1100px) {
+    .toc-fab { display: grid; place-items: center; }
+}
 
 /* 上一篇 / 下一篇 */
 .post-nav {

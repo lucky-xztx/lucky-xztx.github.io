@@ -379,7 +379,28 @@
         } catch (e) { /* ignore */ }
     })();
 
-    /* ================= 12. 返回顶部 ================= */
+    /* ================= 12. 窄屏目录抽屉 ================= */
+    (function tocDrawer() {
+        var fab = $('#tocFab');
+        var drawer = $('#tocDrawer');
+        var mask = $('#tocDrawerMask');
+        var closeBtn = $('#tocDrawerClose');
+        if (!fab || !drawer) return;
+
+        function toggle(open) {
+            drawer.classList.toggle('open', open);
+            if (mask) mask.classList.toggle('open', open);
+            d.documentElement.style.overflow = open ? 'hidden' : '';
+        }
+        fab.addEventListener('click', function () { toggle(!drawer.classList.contains('open')); });
+        if (closeBtn) closeBtn.addEventListener('click', function () { toggle(false); });
+        if (mask) mask.addEventListener('click', function () { toggle(false); });
+        $$('a', drawer).forEach(function (a) {
+            a.addEventListener('click', function () { toggle(false); });
+        });
+    })();
+
+    /* ================= 13. 返回顶部 ================= */
     (function backtop() {
         var btn = $('#backTop');
         if (!btn) return;
