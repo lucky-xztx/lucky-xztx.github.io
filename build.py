@@ -399,17 +399,15 @@ def build_post_page(post, prev_post, next_post):
 
     body = f"""
 <article>
-    <header class="post-hero" style="background-image:url('{post['cover']}')">
-        <div class="post-hero-inner">
-            <a class="crumbs" href="/categories/{urllib.parse.quote(post['category'])}/">
-                <i class="fas fa-bookmark"></i> {esc(post['category'])}
-            </a>
-            <h1>{esc(post['title'])}</h1>
-            <div class="post-meta">
-                <span><i class="far fa-calendar"></i>{post['date']}</span>
-                <span><i class="fas fa-pen-nib"></i>约 {post['words']} 字</span>
-                <span><i class="far fa-clock"></i>阅读约 {mins} 分钟</span>
-            </div>
+    <header class="post-head">
+        <a class="crumbs" href="/categories/{urllib.parse.quote(post['category'])}/">
+            <i class="fas fa-bookmark"></i> {esc(post['category'])}
+        </a>
+        <h1 class="post-title">{esc(post['title'])}</h1>
+        <div class="post-meta">
+            <span class="meta-avatar"><img src="/medias/avatar.jpg" alt="小周">{OWNER}</span>
+            <span><i class="far fa-calendar"></i>{post['date']}</span>
+            <span><i class="far fa-clock"></i>约 {mins} 分钟</span>
         </div>
     </header>
 
@@ -418,8 +416,11 @@ def build_post_page(post, prev_post, next_post):
             <div id="articleContent">
 {post['content']}
             </div>
-            <div class="card-tags" style="margin-top:34px;display:flex;flex-wrap:wrap;gap:8px">
-                {tag_chips}
+            <div class="post-end">
+                <div class="end-line"><span>完</span></div>
+                <div class="card-tags" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
+                    {tag_chips}
+                </div>
             </div>
         </div>
         {toc_html}
