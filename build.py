@@ -336,9 +336,9 @@ def build_home(posts, all_tags, all_cats, run_days):
     rest = posts[1:]
 
     cards = [card_html(featured, "featured-item")]
-    for i, p in enumerate(rest):
-        extra = "wide" if i % 7 == 2 else ""
-        cards.append(card_html(p, extra))
+    # featured 占 2x2，剩余 15+ 张单卡，3 列整除排列，避免网格空洞
+    for p in rest:
+        cards.append(card_html(p))
 
     ticker_items = "".join(
         '<a class="chip" href="/tags/%s/"># %s</a>' % (urllib.parse.quote(t), esc(t))

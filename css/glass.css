@@ -566,6 +566,7 @@ a.chip:hover {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
+    grid-auto-flow: dense; /* 有跨列卡片时自动补位，避免空洞 */
 }
 
 .post-card {
@@ -1341,7 +1342,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .reveal[data-delay="5"] { transition-delay: .40s; }
 
 /* ---------- 20. 遗留内容兼容层（关于/友链/联系页的旧 markup） ---------- */
-.legacy { padding: clamp(20px, 4vw, 44px); }
+.legacy { padding: clamp(20px, 4vw, 44px); font-size: 1rem; line-height: 1.9; }
 .legacy .row { display: flex; flex-wrap: wrap; margin: 0 -0.75rem; }
 .legacy .col { padding: 0 .75rem; }
 .legacy .s12 { width: 100%; } .legacy .s10 { width: 83.33%; } .legacy .s6 { width: 50%; }
@@ -1354,6 +1355,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .legacy .center-align { text-align: center; }
 .legacy .left { float: left; } .legacy .right { float: right; }
 .legacy .hide-on-med-and-down { display: block; }
+.legacy .hide-on-large-only { display: none; } /* 仅小屏显示的块，桌面上隐藏 */
 .legacy .divider { border-top: 1px solid var(--glass-border); margin: 12px 0; }
 .legacy .card {
     background: var(--glass-bg);
@@ -1366,7 +1368,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     margin: 14px 0;
     position: relative;
 }
-.legacy .card .card-content { padding: 24px; }
+.legacy .card .card-content { padding: 30px 32px; }
 .legacy .card .card-image img { display: block; width: 100%; object-fit: cover; }
 .legacy .card .card-title { display: block; padding: 14px 18px; color: var(--text); font-weight: 800; }
 .legacy .btn-floating {
@@ -1389,7 +1391,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     font-weight: 700;
 }
 .legacy .btn:hover, .legacy .btn-floating:hover { color: #fff; filter: brightness(1.1); transform: translateY(-2px); }
-.legacy img { border-radius: var(--r-md); }
+.legacy img { border-radius: var(--r-md); max-width: 100%; }
 .legacy h1, .legacy h2, .legacy h3 { color: var(--text); }
 .legacy .tag-title, .legacy .title {
     font-weight: 900;
@@ -1407,6 +1409,87 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 }
 .legacy .statis .name { display: block; color: var(--text-faint); }
 body.dark .legacy .card { box-shadow: var(--shadow); }
+
+/* 头像 / 个人资料（关于页） */
+.legacy .avatar { display: flex; justify-content: center; padding: 10px 0 14px; }
+.legacy .circle { border-radius: 50% !important; }
+.legacy .avatar-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    box-shadow: 0 14px 34px rgba(94, 92, 230, .3);
+    border: 3px solid rgba(255, 255, 255, .7);
+}
+body.dark .legacy .avatar-img { border-color: rgba(255, 255, 255, .2); }
+.legacy .profile { padding-bottom: 8px; }
+.legacy .author { text-align: center; }
+.legacy .career {
+    display: inline-block;
+    margin: 8px 0;
+    padding: 5px 18px;
+    border-radius: 999px;
+    background: var(--grad-soft);
+    border: 1px solid var(--glass-border);
+    color: var(--text-sub);
+    font-weight: 700;
+    font-size: .88rem;
+}
+.legacy .social-link { display: flex; justify-content: center; gap: 12px; padding: 12px 0; }
+.legacy .social-link a {
+    display: grid;
+    place-items: center;
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-sub);
+    font-size: 1.05rem;
+    transition: all .3s var(--ease-spring);
+}
+.legacy .social-link a:hover {
+    background: var(--grad);
+    color: #fff;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(94, 92, 230, .4);
+}
+
+/* 技能条（关于页 skillbar） */
+.legacy .skillbar {
+    position: relative;
+    height: 36px;
+    margin: 12px 0;
+    border-radius: 999px;
+    background: var(--glass-bg-soft);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+}
+.legacy .skillbar-title {
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 999px;
+    color: #fff;
+    font-weight: 700;
+    font-size: .85rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .25);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
+}
+.legacy .skill-bar-percent {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-sub);
+    font-weight: 800;
+    font-size: .85rem;
+    text-shadow: 0 0 6px rgba(255, 255, 255, .6);
+}
+body.dark .legacy .skill-bar-percent { text-shadow: 0 0 6px rgba(0, 0, 0, .6); }
+
+/* 技能 chips 微调 */
+.legacy .chip { margin: 4px; }
 
 /* ---------- 21. 动效减弱 ---------- */
 @media (prefers-reduced-motion: reduce) {
@@ -1440,6 +1523,7 @@ body.dark .legacy .card { box-shadow: var(--shadow); }
     .backtop { right: 16px; bottom: 20px; }
     .aurora-blob { filter: blur(60px); }
     .legacy .hide-on-med-and-down { display: none; }
+    .legacy .hide-on-large-only { display: block; }
     .legacy .m10, .legacy .m6, .legacy .m4, .legacy .l8, .legacy .l6, .legacy .l4, .legacy .l2,
     .legacy .offset-l2, .legacy .offset-l1, .legacy .offset-m1, .legacy .offset-m2 { width: 100%; margin-left: 0; }
 }
