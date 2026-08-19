@@ -176,21 +176,7 @@
         setTimeout(fallbackCheck, 900);
     })();
 
-    /* ================= 6. 卡片 3D 倾斜 ================= */
-    (function tilt() {
-        if (!desktop || reduced || !window.matchMedia('(hover: hover)').matches) return;
-        $$('.post-card').forEach(function (card) {
-            card.addEventListener('mousemove', function (e) {
-                var r = card.getBoundingClientRect();
-                var px = (e.clientX - r.left) / r.width - .5;
-                var py = (e.clientY - r.top) / r.height - .5;
-                card.style.transform =
-                    'translateY(-8px) perspective(1000px) rotateX(' + (-py * 3.6).toFixed(2) +
-                    'deg) rotateY(' + (px * 3.6).toFixed(2) + 'deg)';
-            }, { passive: true });
-            card.addEventListener('mouseleave', function () { card.style.transform = ''; }, { passive: true });
-        });
-    })();
+    /* ================= 6. 卡片轻浮动（小红书式克制 hover，由 CSS 完成） ================= */
 
     /* ================= 7. 鼠标跟随光晕 ================= */
     (function glow() {

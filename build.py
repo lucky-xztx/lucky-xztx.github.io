@@ -287,36 +287,26 @@ def render_base(title, desc, body, active=""):
 
 # ---------- 组件 ----------
 
-def card_html(post, extra_cls="", featured=False):
-    tags = "".join('<a href="/tags/%s/"><span class="chip">#%s</span></a>'
-                   % (urllib.parse.quote(t), esc(t)) for t in post["tags"][:3])
-    return f"""<a class="post-card {extra_cls} reveal" href="{post['url']}">
-    <span class="sweep"></span>
-    <div class="cover">
+def card_html(post, extra_cls=""):
+    """小红书风格卡片：封面图在上，下方标题 + 作者行"""
+    return f"""<a class="note-card reveal {extra_cls}" href="{post['url']}">
+    <div class="note-cover">
         <img src="{post['cover']}" alt="{esc(post['title'])}" loading="lazy">
-        <span class="cat-chip">{CAT_EMOJI.get(post['category'], '✨')} {esc(post['category'])}</span>
-        <span class="date-chip"><i class="far fa-clock"></i> {post['date']}</span>
     </div>
-    <div class="card-body">
-        <h3>{esc(post['title'])}</h3>
-        <p class="summary">{esc(post['summary'])}</p>
-        <div class="card-tags">{tags}</div>
+    <div class="note-info">
+        <h3 class="note-title">{esc(post['title'])}</h3>
+        <div class="note-meta">
+            <img class="avatar" src="/medias/avatar.jpg" alt="小周">
+            <span class="author">{OWNER}</span>
+            <span class="note-cat">{CAT_EMOJI.get(post['category'], '✨')} {esc(post['category'])}</span>
+        </div>
     </div>
 </a>"""
 
 
 def mini_card_html(post):
-    return f"""<a class="post-card mini-card reveal" href="{post['url']}">
-    <span class="sweep"></span>
-    <div class="cover">
-        <img src="{post['cover']}" alt="{esc(post['title'])}" loading="lazy">
-    </div>
-    <div class="card-body">
-        <h3>{esc(post['title'])}</h3>
-        <p class="summary">{esc(post['summary'])}</p>
-        <span class="chip" style="margin-top:auto;align-self:flex-start"><i class="far fa-clock"></i> {post['date']}</span>
-    </div>
-</a>"""
+    """列表页（标签/分类详情）与首页同款瀑布流卡片"""
+    return card_html(post)
 
 
 def section_head(icon, title, more_href=None, more_text="查看全部 →"):
@@ -332,13 +322,8 @@ def section_head(icon, title, more_href=None, more_text="查看全部 →"):
 # ============================================================
 
 def build_home(posts, all_tags, all_cats, run_days):
-    featured = posts[0]
-    rest = posts[1:]
-
-    cards = [card_html(featured, "featured-item")]
-    # featured 占 2x2，剩余 15+ 张单卡，3 列整除排列，避免网格空洞
-    for p in rest:
-        cards.append(card_html(p))
+    # 小红书式瀑布流：全部文章统一卡片，无 featured 混排
+    cards = [card_html(p) for p in posts]
 
     ticker_items = "".join(
         '<a class="chip" href="/tags/%s/"># %s</a>' % (urllib.parse.quote(t), esc(t))
@@ -379,7 +364,7 @@ def build_home(posts, all_tags, all_cats, run_days):
 
 <section class="section container">
     {section_head('fa-fire', '最新发布')}
-    <div class="bento">{''.join(cards)}</div>
+    <div class="waterfall">{''.join(cards)}</div>
 </section>
 
 <section class="section container">
@@ -478,7 +463,7 @@ def build_tag_detail(tag, posts):
     <p>共 {len(posts)} 篇文章</p>
 </div>
 <section class="section container">
-    <div class="bento" style="grid-template-columns:1fr">{cards}</div>
+    <div class="waterfall">{cards}</div>
 </section>
 """
     write(os.path.join("tags", tag, "index.html"),
@@ -512,7 +497,7 @@ def build_category_detail(cat, posts):
     <p>共 {len(posts)} 篇文章</p>
 </div>
 <section class="section container">
-    <div class="bento" style="grid-template-columns:1fr">{cards}</div>
+    <div class="waterfall">{cards}</div>
 </section>
 """
     write(os.path.join("categories", cat, "index.html"),
@@ -567,7 +552,7 @@ def build_pagination(posts, page_no, per_page=9):
     if not chunk:
         grid = '<div class="empty-tip glass"><i class="fas fa-mug-hot"></i> 这里没有更多文章了，去<a href="/">首页</a>逛逛吧～</div>'
     else:
-        grid = '<div class="bento">%s</div>' % "".join(card_html(p) for p in chunk)
+        grid = '<div class="waterfall">%s</div>' % "".join(card_html(p) for p in chunk)
     body = f"""
 <div class="list-hero">
     <span class="lh-icon"><i class="fas fa-layer-group"></i></span>
