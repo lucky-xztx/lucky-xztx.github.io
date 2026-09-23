@@ -8,15 +8,11 @@
 <title>SQOOP遇到问题 · 小周博客</title>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="stylesheet" href="/libs/awesome/css/all.min.css">
-<link rel="stylesheet" href="/css/glass.css?v=1787138576">
+<link rel="stylesheet" href="/css/glass.css?v=1790143916">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <div class="bg-stage">
-    <div class="aurora-blob b1"></div>
-    <div class="aurora-blob b2"></div>
-    <div class="aurora-blob b3"></div>
-    <div class="aurora-blob b4"></div>
     <div class="noise"></div>
 </div>
 <div id="cursorGlow"></div>
@@ -89,25 +85,6 @@
 
 <p>也就是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqoop export --connect jdbc:mysql://master:3306/testdb?useUnicode=true&amp;characterEncoding=utf-8 --table Student --username root --password 123456 --export-dir hdfs://master:9000/xz/mysql.log --input-fields-terminated-by &#x27;,&#x27;</span><br></pre></td></tr></table></figure>
-
-
-                
-            </div>
-            <hr/>
-
-            
-
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">小周</a>
-                </span>
             </div>
             <div class="post-end">
                 <div class="end-line"><span>完</span></div>
@@ -116,7 +93,7 @@
                 </div>
             </div>
         </div>
-        <aside class="post-toc glass"><div class="toc-title"><i class="fas fa-list-ul"></i> 目录</div><ol class="toc-list"><li class=""><a href="#sqoop%E5%AF%BC%E5%85%A5%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98">sqoop导入遇到的问题</a></li></ol></aside>
+        <aside class="post-toc glass" aria-label="文章目录"><div class="toc-title"><i class="fas fa-list-ul"></i> 目录</div><ol class="toc-list"><li class=""><a href="#sqoop%E5%AF%BC%E5%85%A5%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98">sqoop导入遇到的问题</a></li></ol></aside>
     </div>
 
     <nav class="post-nav container-wide">
@@ -124,11 +101,11 @@
         <a class="glass next" href="/2022/11/12/%E9%A5%BC%E5%9B%BE%E8%BF%9B%E9%98%B6/"><span class="nav-label">下一篇 <i class="fas fa-angle-right"></i></span><span class="nav-title">进阶饼图</span></a>
     </nav>
     
-<button class="toc-fab" id="tocFab" type="button" title="目录"><i class="fas fa-list-ul"></i></button>
-<div class="toc-drawer" id="tocDrawer">
+<button class="toc-fab" id="tocFab" type="button" title="目录" aria-label="打开文章目录" aria-expanded="false" aria-controls="tocDrawer"><i class="fas fa-list-ul"></i></button>
+<div class="toc-drawer" id="tocDrawer" role="dialog" aria-label="文章目录" aria-modal="true">
     <div class="toc-drawer-head">
         <span><i class="fas fa-list-ul"></i> 目录</span>
-        <button class="toc-drawer-close" id="tocDrawerClose" type="button"><i class="fas fa-xmark"></i></button>
+        <button class="toc-drawer-close" id="tocDrawerClose" type="button" aria-label="关闭目录"><i class="fas fa-xmark"></i></button>
     </div>
     <ol class="toc-list"><li class=""><a href="#sqoop%E5%AF%BC%E5%85%A5%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98">sqoop导入遇到的问题</a></li></ol>
 </div>
@@ -164,6 +141,6 @@
 
 <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/app.js?v=1787138576"></script>
+<script src="/js/app.js?v=1790143916"></script>
 </body>
 </html>

@@ -63,8 +63,11 @@ def strip_tags(fragment):
 
 def extract_balanced(text, start_marker):
     """从 start_marker 处的 <div ...> 开始，做 div 配平，返回 div 内部 HTML"""
-    i = text.find(start_marker)
-    if i < 0:
+    marker = text.find(start_marker)
+    if marker < 0:
+        return None
+    i = text.rfind("<div", 0, marker)
+    if i < 0 or ">" in text[i:marker]:
         return None
     open_m = re.compile(r"<div\b", re.I)
     close_m = re.compile(r"</div>", re.I)
@@ -91,9 +94,9 @@ def extract_balanced(text, start_marker):
 # 内容提取
 # ============================================================
 
-def extract_post(rel_html_path):
+def extract_post(rel_html_path, raw=None):
     """rel_html_path: 形如 2022/11/12/基础折线图/index.html"""
-    raw = read(rel_html_path)
+    raw = raw if raw is not None else read(rel_html_path)
     post_url_dir = rel_html_path[: -len("index.html")]  # 2022/11/12/xxx/
 
     m = re.search(r"<title>(.*?)\s*\|", raw)
@@ -118,7 +121,11 @@ def extract_post(rel_html_path):
     cover = m.group(1) if m else "/medias/featureimages/%d.jpg" % (
         zlib.crc32(title.encode("utf-8")) % 24)
 
-    content = extract_balanced(raw, 'id="articleContent"') or ""
+    content = re.sub(r'[ \t]+(?=\n)', '', extract_balanced(raw, 'id="articleContent"') or "")
+    first_heading = re.match(r'\s*<h1\s+id="([^"]+)"[^>]*>(.*?)</h1>', content, re.S)
+    if first_heading and strip_tags(first_heading.group(2)) == title:
+        anchor = '<span class="post-title-anchor" id="%s"></span>' % esc(first_heading.group(1))
+        content = anchor + content[first_heading.end():]
 
     # 摘要：取正文前几个 <p> 的纯文本
     summary = ""
@@ -130,11 +137,13 @@ def extract_post(rel_html_path):
             break
     summary = summary[:120] + ("…" if len(summary) > 120 else "")
 
-    # TOC: h1~h3 with id
+    # TOC: h1~h3 with id; the page title is already visible above the article.
     toc = []
     for hm in re.finditer(r'<h([123])\s+id="([^"]+)"[^>]*>(.*?)</h\1>', content, re.S):
         level, hid, inner = hm.group(1), hm.group(2), hm.group(3)
         text = strip_tags(inner) or hid
+        if int(level) == 1 and text == title:
+            continue
         toc.append({"level": int(level), "id": hid, "text": text})
 
     words = len(strip_tags(content))
@@ -193,10 +202,6 @@ BASE = """<!DOCTYPE html>
 </head>
 <body>
 <div class="bg-stage">
-    <div class="aurora-blob b1"></div>
-    <div class="aurora-blob b2"></div>
-    <div class="aurora-blob b3"></div>
-    <div class="aurora-blob b4"></div>
     <div class="noise"></div>
 </div>
 <div id="cursorGlow"></div>
@@ -387,15 +392,15 @@ def build_post_page(post, prev_post, next_post):
             cls = "toc-h2" if t["level"] == 2 else ("toc-h3" if t["level"] == 3 else "")
             hid = urllib.parse.quote(t["id"])
             items.append('<li class="%s"><a href="#%s">%s</a></li>' % (cls, hid, esc(t["text"])))
-        toc_html = ('<aside class="post-toc glass"><div class="toc-title"><i class="fas fa-list-ul"></i> 目录</div>'
+        toc_html = ('<aside class="post-toc glass" aria-label="文章目录"><div class="toc-title"><i class="fas fa-list-ul"></i> 目录</div>'
                     '<ol class="toc-list">%s</ol></aside>') % "".join(items)
         # 窄屏：右下角浮动按钮 + 右侧滑出抽屉（目录永远在右边）
         toc_drawer = ("""
-<button class="toc-fab" id="tocFab" type="button" title="目录"><i class="fas fa-list-ul"></i></button>
-<div class="toc-drawer" id="tocDrawer">
+<button class="toc-fab" id="tocFab" type="button" title="目录" aria-label="打开文章目录" aria-expanded="false" aria-controls="tocDrawer"><i class="fas fa-list-ul"></i></button>
+<div class="toc-drawer" id="tocDrawer" role="dialog" aria-label="文章目录" aria-modal="true">
     <div class="toc-drawer-head">
         <span><i class="fas fa-list-ul"></i> 目录</span>
-        <button class="toc-drawer-close" id="tocDrawerClose" type="button"><i class="fas fa-xmark"></i></button>
+        <button class="toc-drawer-close" id="tocDrawerClose" type="button" aria-label="关闭目录"><i class="fas fa-xmark"></i></button>
     </div>
     <ol class="toc-list">%s</ol>
 </div>

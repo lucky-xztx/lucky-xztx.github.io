@@ -8,15 +8,11 @@
 <title>基础饼图 · 小周博客</title>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="stylesheet" href="/libs/awesome/css/all.min.css">
-<link rel="stylesheet" href="/css/glass.css?v=1787138576">
+<link rel="stylesheet" href="/css/glass.css?v=1790143916">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <div class="bg-stage">
-    <div class="aurora-blob b1"></div>
-    <div class="aurora-blob b2"></div>
-    <div class="aurora-blob b3"></div>
-    <div class="aurora-blob b4"></div>
     <div class="noise"></div>
 </div>
 <div id="cursorGlow"></div>
@@ -70,7 +66,7 @@
         <div class="post-meta">
             <span class="meta-avatar"><img src="/medias/avatar.jpg" alt="小周">小周</span>
             <span><i class="far fa-calendar"></i>2022-11-12</span>
-            <span><i class="far fa-clock"></i>约 4 分钟</span>
+            <span><i class="far fa-clock"></i>约 5 分钟</span>
         </div>
     </header>
 
@@ -89,7 +85,42 @@
             width: 600px;
         }
 </style>
-<div id="myPie">
+<div id="myPie"></div>
+    <script>
+        let mychar=echarts.init(document.getElementById('myPie'));
+        let option={
+            title:{
+                text:'双十一售出占比',
+                subtext:"我是副标题",
+                left:'center'
+            },
+            legend:{
+                left:0,
+                orient:'vertical'   //修改朝向布局
+            },
+            tooltip:{
+                formatter:function(res){
+                    // console.log(res);
+                    return res.name+"平台卖出:"+res.value+"\n占比率:"+res.percent
+                }
+            },
+            series:[
+               {
+                type:'pie',
+                data:[],
+                name:"双十一"
+               }
+            ]
+        };
+        let name=['淘宝',"京东","拼多多","抖音","其他"];
+        for (let x of name){
+            option.series[0].data.push({
+                'name' : x,
+                'value' : Math.floor(Math.random()*1000)
+            });
+        }
+        mychar.setOption(option);
+    </script>
             </div>
             <div class="post-end">
                 <div class="end-line"><span>完</span></div>
@@ -98,7 +129,7 @@
                 </div>
             </div>
         </div>
-        <aside class="post-toc glass"><div class="toc-title"><i class="fas fa-list-ul"></i> 目录</div><ol class="toc-list"><li class=""><a href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%88%91%E4%BB%AC%E8%BF%9B%E5%85%A5%E9%A5%BC%E5%9B%BE%E5%AD%A6%E4%B9%A0">接下来我们进入饼图学习</a></li><li class="toc-h2"><a href="#%E9%A5%BC%E5%9B%BE">饼图:</a></li><li class="toc-h2"><a href="#%E4%B8%80%E5%A6%82%E6%97%A2%E5%BE%80%E6%88%91%E4%BB%AC%E7%9C%8B%E7%9C%8B%E6%95%88%E6%9E%9C">一如既往我们看看效果:</a></li></ol></aside>
+        <aside class="post-toc glass" aria-label="文章目录"><div class="toc-title"><i class="fas fa-list-ul"></i> 目录</div><ol class="toc-list"><li class=""><a href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%88%91%E4%BB%AC%E8%BF%9B%E5%85%A5%E9%A5%BC%E5%9B%BE%E5%AD%A6%E4%B9%A0">接下来我们进入饼图学习</a></li><li class="toc-h2"><a href="#%E9%A5%BC%E5%9B%BE">饼图:</a></li><li class="toc-h2"><a href="#%E4%B8%80%E5%A6%82%E6%97%A2%E5%BE%80%E6%88%91%E4%BB%AC%E7%9C%8B%E7%9C%8B%E6%95%88%E6%9E%9C">一如既往我们看看效果:</a></li></ol></aside>
     </div>
 
     <nav class="post-nav container-wide">
@@ -106,11 +137,11 @@
         <a class="glass next" href="/2022/11/12/%E5%9F%BA%E7%A1%80%E6%8A%98%E7%BA%BF%E5%9B%BE/"><span class="nav-label">下一篇 <i class="fas fa-angle-right"></i></span><span class="nav-title">基础折线图</span></a>
     </nav>
     
-<button class="toc-fab" id="tocFab" type="button" title="目录"><i class="fas fa-list-ul"></i></button>
-<div class="toc-drawer" id="tocDrawer">
+<button class="toc-fab" id="tocFab" type="button" title="目录" aria-label="打开文章目录" aria-expanded="false" aria-controls="tocDrawer"><i class="fas fa-list-ul"></i></button>
+<div class="toc-drawer" id="tocDrawer" role="dialog" aria-label="文章目录" aria-modal="true">
     <div class="toc-drawer-head">
         <span><i class="fas fa-list-ul"></i> 目录</span>
-        <button class="toc-drawer-close" id="tocDrawerClose" type="button"><i class="fas fa-xmark"></i></button>
+        <button class="toc-drawer-close" id="tocDrawerClose" type="button" aria-label="关闭目录"><i class="fas fa-xmark"></i></button>
     </div>
     <ol class="toc-list"><li class=""><a href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%88%91%E4%BB%AC%E8%BF%9B%E5%85%A5%E9%A5%BC%E5%9B%BE%E5%AD%A6%E4%B9%A0">接下来我们进入饼图学习</a></li><li class="toc-h2"><a href="#%E9%A5%BC%E5%9B%BE">饼图:</a></li><li class="toc-h2"><a href="#%E4%B8%80%E5%A6%82%E6%97%A2%E5%BE%80%E6%88%91%E4%BB%AC%E7%9C%8B%E7%9C%8B%E6%95%88%E6%9E%9C">一如既往我们看看效果:</a></li></ol>
 </div>
@@ -146,6 +177,6 @@
 
 <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/app.js?v=1787138576"></script>
+<script src="/js/app.js?v=1790143916"></script>
 </body>
 </html>

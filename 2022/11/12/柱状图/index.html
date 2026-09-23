@@ -8,15 +8,11 @@
 <title>基础柱状图 · 小周博客</title>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="stylesheet" href="/libs/awesome/css/all.min.css">
-<link rel="stylesheet" href="/css/glass.css?v=1787138576">
+<link rel="stylesheet" href="/css/glass.css?v=1790143916">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <div class="bg-stage">
-    <div class="aurora-blob b1"></div>
-    <div class="aurora-blob b2"></div>
-    <div class="aurora-blob b3"></div>
-    <div class="aurora-blob b4"></div>
     <div class="noise"></div>
 </div>
 <div id="cursorGlow"></div>
@@ -70,7 +66,7 @@
         <div class="post-meta">
             <span class="meta-avatar"><img src="/medias/avatar.jpg" alt="小周">小周</span>
             <span><i class="far fa-calendar"></i>2022-11-12</span>
-            <span><i class="far fa-clock"></i>约 3 分钟</span>
+            <span><i class="far fa-clock"></i>约 4 分钟</span>
         </div>
     </header>
 
@@ -93,7 +89,33 @@
         width: 600px;
     }
 </style>
-<div id="myBar">
+<div id="myBar"></div>
+<script>
+        let myChar=echarts.init(document.getElementById('myBar'));
+        let option={
+            title:{
+                text:'我是柱状图的标题'
+            },
+            xAxis:{
+                type:'category',
+                data:["小周","小红","小白","小明","小黄"]
+            },
+            yAxis:{
+                type:'value'
+            },
+            series:[
+                {
+                    type:'bar',
+                    data:[],
+                    name:'语文'
+                }
+            ]
+        };
+        for (let i=0;i<option.xAxis.data.length;i++){
+            option.series[0].data.push(Math.floor(Math.random()*100));
+        }
+        myChar.setOption(option);
+    </script>
             </div>
             <div class="post-end">
                 <div class="end-line"><span>完</span></div>
@@ -102,7 +124,7 @@
                 </div>
             </div>
         </div>
-        <aside class="post-toc glass"><div class="toc-title"><i class="fas fa-list-ul"></i> 目录</div><ol class="toc-list"><li class=""><a href="#%E5%BC%80%E5%A7%8B%E6%88%91%E4%BB%AC%E7%9A%84echarts%E4%B9%8B%E6%97%85%E5%90%A7">开始我们的echarts之旅吧</a></li><li class="toc-h2"><a href="#%E6%89%93%E5%BC%80%E6%88%91%E4%BB%AC%E7%9A%84vodece%E5%BC%80%E5%A7%8B%E5%90%A7%EF%BC%81%EF%BC%81%EF%BC%81">打开我们的vodece开始吧！！！</a></li><li class="toc-h2"><a href="#%E6%95%88%E6%9E%9C%E5%A6%82%E4%B8%8B%EF%BC%9A">效果如下：</a></li></ol></aside>
+        <aside class="post-toc glass" aria-label="文章目录"><div class="toc-title"><i class="fas fa-list-ul"></i> 目录</div><ol class="toc-list"><li class=""><a href="#%E5%BC%80%E5%A7%8B%E6%88%91%E4%BB%AC%E7%9A%84echarts%E4%B9%8B%E6%97%85%E5%90%A7">开始我们的echarts之旅吧</a></li><li class="toc-h2"><a href="#%E6%89%93%E5%BC%80%E6%88%91%E4%BB%AC%E7%9A%84vodece%E5%BC%80%E5%A7%8B%E5%90%A7%EF%BC%81%EF%BC%81%EF%BC%81">打开我们的vodece开始吧！！！</a></li><li class="toc-h2"><a href="#%E6%95%88%E6%9E%9C%E5%A6%82%E4%B8%8B%EF%BC%9A">效果如下：</a></li></ol></aside>
     </div>
 
     <nav class="post-nav container-wide">
@@ -110,11 +132,11 @@
         <a class="glass next" href="/2022/11/12/%E6%8A%98%E7%BA%BF%E5%9B%BE%E5%B9%B3%E6%BB%91/"><span class="nav-label">下一篇 <i class="fas fa-angle-right"></i></span><span class="nav-title">平滑折线图</span></a>
     </nav>
     
-<button class="toc-fab" id="tocFab" type="button" title="目录"><i class="fas fa-list-ul"></i></button>
-<div class="toc-drawer" id="tocDrawer">
+<button class="toc-fab" id="tocFab" type="button" title="目录" aria-label="打开文章目录" aria-expanded="false" aria-controls="tocDrawer"><i class="fas fa-list-ul"></i></button>
+<div class="toc-drawer" id="tocDrawer" role="dialog" aria-label="文章目录" aria-modal="true">
     <div class="toc-drawer-head">
         <span><i class="fas fa-list-ul"></i> 目录</span>
-        <button class="toc-drawer-close" id="tocDrawerClose" type="button"><i class="fas fa-xmark"></i></button>
+        <button class="toc-drawer-close" id="tocDrawerClose" type="button" aria-label="关闭目录"><i class="fas fa-xmark"></i></button>
     </div>
     <ol class="toc-list"><li class=""><a href="#%E5%BC%80%E5%A7%8B%E6%88%91%E4%BB%AC%E7%9A%84echarts%E4%B9%8B%E6%97%85%E5%90%A7">开始我们的echarts之旅吧</a></li><li class="toc-h2"><a href="#%E6%89%93%E5%BC%80%E6%88%91%E4%BB%AC%E7%9A%84vodece%E5%BC%80%E5%A7%8B%E5%90%A7%EF%BC%81%EF%BC%81%EF%BC%81">打开我们的vodece开始吧！！！</a></li><li class="toc-h2"><a href="#%E6%95%88%E6%9E%9C%E5%A6%82%E4%B8%8B%EF%BC%9A">效果如下：</a></li></ol>
 </div>
@@ -150,6 +172,6 @@
 
 <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/app.js?v=1787138576"></script>
+<script src="/js/app.js?v=1790143916"></script>
 </body>
 </html>

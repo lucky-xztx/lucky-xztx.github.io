@@ -312,7 +312,9 @@
 
     /* ================= 10. 代码块增强（Mac 灯 / 语言 / 复制） ================= */
     (function codeBlocks() {
-        var blocks = $$('#articleContent figure.highlight, #articleContent pre');
+        var blocks = $$('#articleContent figure.highlight, #articleContent pre').filter(function (b) {
+            return !b.closest('figure.highlight') || b.matches('figure.highlight');
+        });
         blocks.forEach(function (b) {
             var lang = '';
             var m = b.className.match(/highlight\s+(\w+)/);
@@ -335,8 +337,8 @@
             btn.type = 'button';
             btn.textContent = '复制';
             btn.addEventListener('click', function () {
-                var codeEl = b.querySelector('pre') || b.querySelector('code');
-                var text = codeEl ? codeEl.innerText : '';
+                var codeEl = b.querySelector('.code pre') || b.querySelector('code') || b.querySelector('pre') || b;
+                var text = codeEl.innerText;
                 function done() {
                     btn.textContent = '已复制 ✓';
                     btn.classList.add('done');
@@ -390,11 +392,17 @@
         function toggle(open) {
             drawer.classList.toggle('open', open);
             if (mask) mask.classList.toggle('open', open);
+            fab.setAttribute('aria-expanded', String(open));
             d.documentElement.style.overflow = open ? 'hidden' : '';
+            if (open && closeBtn) closeBtn.focus();
+            if (!open) fab.focus();
         }
         fab.addEventListener('click', function () { toggle(!drawer.classList.contains('open')); });
         if (closeBtn) closeBtn.addEventListener('click', function () { toggle(false); });
         if (mask) mask.addEventListener('click', function () { toggle(false); });
+        d.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && drawer.classList.contains('open')) toggle(false);
+        });
         $$('a', drawer).forEach(function (a) {
             a.addEventListener('click', function () { toggle(false); });
         });
